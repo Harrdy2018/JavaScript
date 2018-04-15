@@ -48,3 +48,28 @@
 </div>
 </body>
 </html>
+
+#网页换肤
+#任何标签都可以加ID，包括link；任何标签的任何属性，也都可以修改
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页换肤</title>
+    <link id="l1" rel="stylesheet" type="text/css" href="css2.css"/>
+    <script>
+        function skin1() {
+            var oL=document.getElementById('l1');
+            oL.href="css1.css";
+        }
+        function skin2() {
+            var oL=document.getElementById('l1');
+            oL.href='css2.css';
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="皮肤1" onclick="skin1();"/>
+<input type="button" value="皮肤2" onclick="skin2();"/>
+</body>
+</html>
