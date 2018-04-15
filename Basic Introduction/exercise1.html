@@ -1,0 +1,22 @@
+#鼠标移到文本框时提示，输出内容不能为空，点击旁边按钮时，修改文本框中的文字为Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function setText() {
+        var oTxt=document.getElementById("txt1");
+        oTxt.value="Hello world!!";
+    }
+    function hint() {
+        var oTxt=document.getElementById("txt1");
+        oTxt.title="内容不能为空！！！";
+    }
+</script>
+<body>
+<input id="txt1" type="text" value="" onmouseover="hint();"/>
+<input type="button" value="改文字" onclick="setText();"/>
+</body>
+</html>
