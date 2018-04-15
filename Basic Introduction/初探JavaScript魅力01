@@ -73,6 +73,32 @@
             background: red;
         }
     </style>
+</head>
+<body>
+<div id="div1" onmouseover="
+            document.getElementById('div1').style.width='300px';
+            document.getElementById('div1').style.height='300px';
+            document.getElementById('div1').style.background='green';"
+            onmouseout="
+            document.getElementById('div1').style.width='200px';
+            document.getElementById('div1').style.height='200px';
+            document.getElementById('div1').style.background='red';">
+</div>
+</body>
+</html>
+#利用JS函数重构代码
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
     <script>
         function toGreen() {
             document.getElementById('div1').style.width='300px';
