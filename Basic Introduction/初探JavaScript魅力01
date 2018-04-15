@@ -1,1 +1,11 @@
-
+#第一个JS特效，点击按钮，网页弹出信息
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" onclick="alert('Hello world!!');"/>
+</body>
+</html>
