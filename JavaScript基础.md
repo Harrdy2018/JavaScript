@@ -111,3 +111,40 @@
 </body>
 </html>
 ```
+
+***
+* Ex.5 改进例3，当用户输入的不是数字怎么办？当用户输入的是小数怎么办？
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求和</title>
+<script>
+    window.onload=function (){
+        var oTxt1=document.getElementById('txt1');
+        var oTxt2=document.getElementById('txt2');
+        var oBtn1=document.getElementById('btn1');
+        oBtn1.onclick=function () {
+            var n1=parseFloat(oTxt1.value);
+            var n2=parseFloat(oTxt2.value);
+            if (isNaN(n1)){
+                alert('你输入的第一个数字有误！！！');
+            }
+            else if(isNaN(n2)){
+                alert('你输入的第二个数字有误！！！');
+            }
+            else {
+                alert(n1 + n2);
+            }
+        };
+    };
+</script>
+</head>
+<body>
+<input id="txt1" type="text"/>
+<input id="txt2" type="text"/>
+<input id="btn1" type="button" value="sum"/>
+</body>
+</html>
+```
