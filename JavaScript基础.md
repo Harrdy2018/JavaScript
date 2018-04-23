@@ -4,6 +4,7 @@
 * [变量作用域](#变量作用域)
 * [闭包](#闭包)
 * [命名规范](#命名规范)
+* [运算符](#运算符)
 
 ***
 ## JavaScript组成
@@ -280,3 +281,71 @@
 |正则表达式|re|RegExp|reEmailCheck|
 |字符串|s|String|sUserName|
 |变体变量|v|Variant|vAnything|
+
+***
+## 运算符
+* 算术：+加、-减、`*`乘、/除、%取模
+
+***
+* Ex.1 取模
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+alert(7%5);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+* Ex.2 隔行变色
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+window.onload=function ()
+{
+    var aLi=document.getElementsByTagName('li');
+    for (var i=0;i<aLi.length;i++)
+    {
+        //i=0,1,2,3,4,5,6...
+       if(i%2===0)
+       {
+            //i=0,2,4,6,8...
+           aLi[i].style.background='#ccc';
+       }
+       else
+       {
+            //i=1,3,5,7,9...
+            aLi[i].style.background='';
+       }
+    }
+}
+</script>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>
+```
+
+***
+* Ex.3 秒转时间
