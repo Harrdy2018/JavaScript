@@ -179,3 +179,54 @@
 </body>
 </html>
 ```
+
+***
+* Ex.7 隐式类型转换 字符串相加时，字符串连接；字符串相减时，数字相减。
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隐式类型转换</title>
+<script>
+    var a='12';
+    var b='7';
+    alert(a+b);//127 1,字符串连接  2，数字相加
+    alert(a-b);//5  只有数字相减功能
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+## 变量作用域
+* 变量作用域(作用范围)
+* Ex.1 局部变量和全局变量
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+    var a=12;//全局变量，在任何地方都能用
+    function bbb() {
+        var b=4;//局部变量，只能在定义它的函数里使用
+        alert(b);
+    }
+    alert(a);
+    bbb();
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+## 闭包
+**定义：子函数可以使用父函数中的局部变量**
