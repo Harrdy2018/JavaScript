@@ -91,3 +91,23 @@
 </body>
 </html>
 ```
+
+***
+* Ex.4 NaN和NaN是不相等的
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+<script>
+    var a=parseInt('abc');
+    var b=parseInt('def');
+    alert(a===b);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
