@@ -5,6 +5,7 @@
 * [闭包](#闭包)
 * [命名规范](#命名规范)
 * [运算符](#运算符)
+* [程序流程控制](#程序流程控制)
 
 ***
 ## JavaScript组成
@@ -349,3 +350,84 @@ window.onload=function ()
 
 ***
 * Ex.3 秒转时间
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var a=156;
+alert(parseInt(a/60)+'分'+a%60+'秒');
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+* 赋值：=,+=,-=,*=,/=,%=
+
+***
+* 关系:<,>,<=,>=,==,===,!=,!==
+
+***
+* 逻辑：&&与，||或，!非
+
+***
+* 运算符优先级：括号
+
+***
+## 程序流程控制
+* 判断：if,switch,?:
+
+***
+* Ex.1 switch用法
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var name='Harrdy';
+var sex='男';
+switch(sex)
+{
+    case '男':
+        alert(name+'先生，您好！！！');
+        break;
+    case '女':
+        alert(name+'女士，您好！！！');
+        break;
+    default:
+        alert(name+'您好！！！')
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+* Ex.2 `?:`三目运算符 **条件?语句1:语句二** 判断偶数和奇数
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var a=35;
+a%2===0?alert('偶数'):alert('奇数');
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
