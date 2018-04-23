@@ -230,3 +230,26 @@
 ***
 ## 闭包
 **定义：子函数可以使用父函数中的局部变量**
+* Ex.1 我们把下面的`aaa()`函数叫做父函数，`bbb()`函数叫做子函数。
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+    function aaa() {
+        var a=12;
+        function bbb() {
+            alert(a);
+        }
+        bbb();
+    }
+    aaa();
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
