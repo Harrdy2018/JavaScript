@@ -2,6 +2,12 @@
 * [函数返回值](#函数返回值)
 * [函数传参](#函数传参)
   * [不定参](#不定参)
+* [数组基础](#数组基础)
+  * [定义](#定义)
+  * [数组的属性](#数组的属性)
+  * [数组使用原则](#数组使用原则)
+  * [数组添加元素](#数组添加元素)
+  * [数组删除元素](#数组删除元素)
 
 ***
 ## 函数返回值
@@ -165,4 +171,126 @@ window.onload=function () {
 复合样式：background,border
 单一样式:width,height,position
 非要取复合样式，例如`background`则应该使用`backgroundColor`
+```
+
+***
+## 数组基础
+### 定义
+* var arr=[12,5,8,9];
+* var arr=new Array(12,5,8,9);
+* 没有任何差别,[]的性能略高，因为代码短。
+### 数组的属性
+* length
+* 既可以获取，又可以设置
+* 例子：快速清空数组
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var arr=[1,2,3,4,5,6];//新建一个数组
+alert(arr);//弹出数组信息
+alert(arr.length);//弹出数组长度信息
+arr.length=3;//设置数组的长度
+alert(arr);
+arr.length=0;//清空数组
+alert(arr);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+### 数组使用原则
+**数组中应该只存一种类型的变量**
+
+***
+### 数组添加元素
+* Ex.1 push(element),从尾部添加
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var arr=[1,2,3,4,5,6];//新建一个数组
+alert(arr);
+arr.push(4);
+alert(arr);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+* Ex.2 unshift(element),从头部添加
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var arr=[1,2,3,4,5,6];//新建一个数组
+alert(arr);
+arr.unshift(4);
+alert(arr);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+### 数组删除元素
+* Ex.1 pop(),从尾部删除
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var arr=[1,2,3,4,5,6];//新建一个数组
+alert(arr);
+arr.pop();
+alert(arr);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+* Ex.2 shift(),从头部删除
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var arr=[1,2,3,4,5,6];//新建一个数组
+alert(arr);
+arr.shift();
+alert(arr);
+</script>
+</head>
+<body>
+
+</body>
+</html>
 ```
