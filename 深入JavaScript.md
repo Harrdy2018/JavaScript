@@ -1,5 +1,7 @@
 # 深入JavaScript
 * [函数返回值](#函数返回值)
+* [函数传参](#函数传参)
+  * [不定参](#不定参)
 
 ***
 ## 函数返回值
@@ -114,4 +116,53 @@ window.onload=function () {
 <div id="div1" style="width: 200px;height: 20px;background: red;"></div>
 </body>
 </html>
+```
+
+***
+* Ex.2 获取非行间样式
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<style>
+    #div1
+    {
+        width: 200px;
+        height: 20px;
+        background: red;
+    }
+</style>
+<script>
+function getStyle(obj,name) {
+    //获取非行间样式
+    if(obj.currentStyle)
+    {
+        //IE
+        return obj.currentStyle[name];
+    }
+    else
+    {
+        //chrome
+        return getComputedStyle(obj,null)[name];
+    }
+}
+window.onload=function () {
+    var oDiv=document.getElementById('div1');
+    alert(getStyle(oDiv,'width'));
+    alert(getStyle(oDiv,'backgroundColor'))
+}
+</script>
+</head>
+<body>
+<div id="div1" style=""></div>
+</body>
+</html>
+```
+```
+只能获取单一样式。
+复合样式：background,border
+单一样式:width,height,position
+非要取复合样式，例如`background`则应该使用`backgroundColor`
 ```
