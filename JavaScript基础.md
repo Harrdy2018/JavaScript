@@ -64,3 +64,30 @@
 </body>
 </html>
 ```
+
+***
+* Ex.3 点击sum按钮，实现两个文本框的求和
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>求和</title>
+<script>
+    window.onload=function (){
+        var oTxt1=document.getElementById('txt1');
+        var oTxt2=document.getElementById('txt2');
+        var oBtn1=document.getElementById('btn1');
+        oBtn1.onclick=function () {
+            alert(parseInt(oTxt1.value)+parseInt(oTxt2.value));
+        };
+    };
+</script>
+</head>
+<body>
+<input id="txt1" type="text"/>
+<input id="txt2" type="text"/>
+<input id="btn1" type="button" value="sum"/>
+</body>
+</html>
+```
