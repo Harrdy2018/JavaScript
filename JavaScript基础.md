@@ -158,3 +158,24 @@
 </body>
 </html>
 ```
+
+***
+* Ex.6 ==先转换再比较；===不转换类型直接比较。
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+<script>
+    var a=5;
+    var b='5';
+    alert(a==b);//true
+    alert(a===b);//false
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
