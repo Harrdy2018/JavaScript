@@ -39,3 +39,28 @@
 </body>
 </html>
 ```
+
+***
+* Ex.2 将字符串转为数字 parseInt(string)用法，该方法从左向右检索字符串，一旦碰到一个非数字的字符，就跳出来
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将字符串转为数字</title>
+<script>
+    var a='12';
+    alert(parseInt(a)+1);//13
+    var b='12px';
+    alert(parseInt(b));//12
+    var c='12px12';
+    alert(parseInt(c));//12
+    var d='abc';
+    alert(parseInt(d))//NaN Not a Number非数字
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
