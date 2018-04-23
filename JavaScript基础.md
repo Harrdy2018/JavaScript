@@ -14,7 +14,7 @@
   * 常见类型
     * number,string,boolean,undefinde,object,function
 * 一种变量应该只存一种类型的数据
-* Ex.1 undefined出现在,变量真的没定义；定义了，但是没有赋值。
+* Ex.1 undefined出现在，变量真的没定义；定义了，但是没有赋值。
 ```html
 <!DOCTYPE html>
 <html lang="en">
