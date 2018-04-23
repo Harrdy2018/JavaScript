@@ -6,3 +6,11 @@
   * ECMA几乎没有兼容性问题
   * DOM有一些操作不兼容
   * BOM没有兼容问题（完全不兼容，基本不用）
+
+***
+## 变量类型
+* 类型typeof运算符
+  * 用法、返回值
+  * 常见类型
+    * number,string,boolean,undefinde,object,function
+* 一种变量应该只存一种类型的数据
