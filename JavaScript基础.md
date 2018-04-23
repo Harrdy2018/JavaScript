@@ -14,6 +14,16 @@
   * 常见类型
     * number,string,boolean,undefinde,object,function
 * 一种变量应该只存一种类型的数据
+* 数据类型转换
+* 例子：计算两个文本框的和
+* 显示类型转换（强制类型转换）
+  * parseInt() parseFloat()
+  * NaN的意义和检测
+* 隐式类型转换
+  * ==,===
+  * 减法
+
+***
 * Ex.1 undefined出现在，变量真的没定义；定义了，但是没有赋值。
 ```html
 <!DOCTYPE html>
