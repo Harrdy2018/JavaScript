@@ -6,6 +6,7 @@
 * [命名规范](#命名规范)
 * [运算符](#运算符)
 * [程序流程控制](#程序流程控制)
+* [Json](#Json)
 
 ***
 ## JavaScript组成
@@ -450,7 +451,70 @@ continue:跳出此次循环，继续进行下一次循环
 ```
 
 ***
-* Json
+## Json
+```
+JSON(JavaScript Object Notation, JS对象标记) 是一种轻量级的数据交换格式
 ```
 
+***
+* Ex.1
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var json={a:12,b:5,c:'Harrdy'};
+alert(json.a);
+json.b++;
+alert(json.b);
+</script>
+</head>
+<body>
+
+</body>
+</html>
+```
+
+***
+* Json和数组的区别以及遍历 数组一般用第一种，json一般用for in 方法
+* Ex.1
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+<script>
+var json={a:12,b:5,c:7};
+var arr=[12,5,7];
+/*
+alert(json.a);
+alert(json['a']);
+alert(arr[0]);
+alert(arr.length);*/
+//json没有length，怎么循环
+/*
+for(var i=0;i<arr.length;i++)
+{
+    alert(arr[i]);
+}*/
+//第二种方式循环数组 for in
+/*
+for(var i in arr)
+{
+    alert(arr[i]);
+}*/
+//for in 遍历json
+for(var i in json)
+{
+    alert(i+'='+json[i]);
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
 ```
