@@ -6,3 +6,8 @@
 * [改变div多种样式](https://github.com/Harrdy2018/JavaScript/edit/master/ex2.html)
 ## 基础应用
 * [JavaScript基础](https://github.com/Harrdy2018/JavaScript/blob/master/JavaScript%E5%9F%BA%E7%A1%80.md)
+  * JavaScript组成
+  * 变量类型
+  * 变量作用域
+  * 闭包
+  * 命名规范
