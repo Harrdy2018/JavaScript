@@ -1,3 +1,11 @@
+# JavaScript基础
+* [JavaScript组成](JavaScript组成)
+* [变量类型](变量类型)
+* [变量作用域](变量作用域)
+* [闭包](闭包)
+* [命名规范](命名规范)
+
+***
 ## JavaScript组成
 * ECMAScript解释器、翻译
 * DOM:Document Object Model 操作html的能力
@@ -261,3 +269,14 @@
 * 类型前缀
 * 首字母大写
 ***
+|类型|前缀|类型|实例|
+|:------:|:------:|:------:|:------:|
+|数组|a|Array|aItems|
+|布尔值|b|Boolean|bIsComplete|
+|浮点数|f|Float|fPrice|
+|函数|fn|Function|fnHandler|
+|整数|i|Integer|iItemCount|
+|对象|o|Object|oDiv1|
+|正则表达式|re|RegExp|reEmailCheck|
+|字符串|s|String|sUserName|
+|变体变量|v|Variant|vAnything|
