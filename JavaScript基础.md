@@ -14,3 +14,28 @@
   * 常见类型
     * number,string,boolean,undefinde,object,function
 * 一种变量应该只存一种类型的数据
+* Ex.1
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script>
+    //var a=12;alert(typeof a);//number
+    //var a='Hrrrdy2018';alert(typeof a);//string
+    //var a=true;alert(typeof a);//boolean
+    /*
+    a=function () {
+        alert('Harrdy2018');
+    };
+    alert(typeof a);//function*/
+    //a=document;alert(typeof a);//object
+    //alert(typeof b);//undefined
+    //var b;alert(typeof b)//undefined
+</script>
+</head>
+<body>
+</body>
+</html>
+```
