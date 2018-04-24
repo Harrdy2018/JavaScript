@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Clock</title>
+    <script>
+        function toDou(n)
+        {
+            if(n<10)
+            {
+                return '0'+n;
+            }
+            else
+            {
+                return n+'';
+            }
+        }
+        window.onload=function ()
+        {
+            function tick()
+            {
+                var aImg=document.getElementsByTagName('img');
+                var oDate=new Date();
+                //表示年
+                sYear=oDate.getFullYear()+'';
+                for (var i=1;i<5;i++)
+                {
+                    //
+                    aImg[i].src='images/'+sYear.charAt(i-1)+'.png';
+                }
+                //表示月
+                sMonth=toDou(oDate.getMonth()+1);
+                for (var j=6;j<8;j++)
+                {
+                    aImg[j].src='images/'+sMonth.charAt(j-6)+'.png';
+                }
+                //表示日
+                sDate=toDou(oDate.getDate());
+                for (var k=9;k<11;k++)
+                {
+                    aImg[k].src='images/'+sDate.charAt(k-9)+'.png';
+                }
+                //表示时
+                sHour=toDou(oDate.getHours());
+                for(var h=12;h<14;h++)
+                {
+                    aImg[h].src='images/'+sHour.charAt(h-12)+'.png';
+                }
+                //表示分
+                sMin=toDou(oDate.getMinutes());
+                for(var m=15;m<17;m++)
+                {
+                    aImg[m].src='images/'+sMin.charAt(m-15)+'.png';
+                }
+                //表示秒
+                sSec=toDou(oDate.getSeconds());
+                for(var s=18;s<20;s++)
+                {
+                    aImg[s].src='images/'+sSec.charAt(s-18)+'.png';
+                }
+                //表示星期几
+                var aDay=['seven','one','two','three','four','five','six'];
+                aImg[21].src='images/'+aDay.charAt(oDate.getDay())+'.png';
+            }
+            setInterval(tick,1000);
+            tick();
+        };
+    </script>
+</head>
+<body style="background: black;color: white;font-size: 50px;">
+<img src="images/title.png"/><!--不动-->
+<br>
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/year.png"/><!--不动-->
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/month.png"/><!--不动-->
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/seven.png"/><!--不动-->
+<br>
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/sign.png"/><!--不动-->
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/sign.png"/><!--不动-->
+<img src="images/0.png"/>
+<img src="images/0.png"/>
+<img src="images/week.png"/><!--不动-->
+<img src="images/one.png"/>
+</body>
+</html>
