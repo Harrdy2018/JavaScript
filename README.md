@@ -28,3 +28,9 @@
     * 转换
     * 排序
 * [定时器的使用](https://github.com/Harrdy2018/JavaScript/blob/master/%E5%AE%9A%E6%97%B6%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8.md)
+  * 开启定时器
+  * 停止定时器
+  * 实战
+    * 数码时钟
+    * 延时提示框
+    * 无缝滚动
