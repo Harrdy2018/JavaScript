@@ -27,6 +27,37 @@
 ```
 
 ***
+* 扩展
+* document.write()字段是标准的javascript命令，用来向页面写入输出
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.write("Hello World!!!");
+</script>
+</body>
+</html>
+```
+* 如果我们不写script标签，浏览器就会将命令当作纯文本来处理。页面显示：`document.write("Hello World!!!");`
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+document.write("Hello World!!!");
+</body>
+</html>
+```
+
+***
 ### 链接外部JavaScript文件
 * 新建一个js文件  test.js
 ```javascript
