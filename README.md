@@ -2,6 +2,7 @@
 ![Alt text](https://github.com/Harrdy2018/JavaScript/blob/master/js.png)
 ## 目录
 ## 基础入门
+* [编写js代码]()
 * [网页换肤、基本事件、函数、if](https://github.com/Harrdy2018/JavaScript/tree/master/Basic%20Introduction)
 * [改变div的一种样式](https://github.com/Harrdy2018/JavaScript/edit/master/ex1.html)
 * [改变div多种样式](https://github.com/Harrdy2018/JavaScript/edit/master/ex2.html)
