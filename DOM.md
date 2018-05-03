@@ -119,3 +119,48 @@ IE 10%,Chrome 60%,FF 99%
 ```
 
 ***
+# 获首尾子节点，兄弟节点
+```
+存在兼容性问题
+首尾子节点：firstChild firstElementChild
+           lastChild  lastElementChild
+兄弟节点：  nextSibling nextElementSibling
+           previousSibling previousElementSibling
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oUl=document.getElementById('ul1');
+            //IE6-8
+            //oUl.firstChild.style.background='red';
+            //高版本浏览器
+            //oUl.firstElementChild.style.background='red';
+            //兼容性判断
+            if(oUl.firstElementChild)
+            {
+                oUl.firstElementChild.style.background='red';
+            }
+            else
+            {
+                oUl.firstChild.style.background='red';
+            }
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+</html>
+```
+
+***
+#
