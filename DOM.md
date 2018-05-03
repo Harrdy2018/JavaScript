@@ -163,4 +163,10 @@ IE 10%,Chrome 60%,FF 99%
 ```
 
 ***
-#
+# 操纵元素属性
+* oDiv.style.display="block";
+* oDiv.style["display"]="block";
+* Dom方式
+* 获取getAttribute(名称)
+* 设置setAttribute(名称，值)
+* 删除removeAttribute(名称)
