@@ -229,3 +229,48 @@ IE 10%,Chrome 60%,FF 99%
 </body>
 </html>
 ```
+
+***
+将上述方法封装成函数
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function getByClass(oParent,sClass)
+        {
+            var aResult=[];
+            var aEle=oParent.getElementsByTagName('*');
+            for(var i=0;i<aEle.length;i++)
+            {
+                if(aEle[i].className===sClass)
+                {
+                    aResult.push(aEle[i]);
+                }
+            }
+            return aResult;
+        }
+        window.onload=function () {
+            var oUl=document.getElementById("ul1");
+            var aBox=getByClass(oUl,'box');
+            for(var i=0;i<aBox.length;i++)
+            {
+                aBox[i].style.background='red';
+            }
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li class="box"></li>
+    <li class="box"></li>
+    <li></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+</ul>
+</body>
+</html>
+```
