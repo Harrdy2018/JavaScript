@@ -7,6 +7,7 @@ document object model
 * 浏览器的支持情况
 IE 10%,Chrome 60%,FF 99%
 
+***
 # 获取子节点
 * 子节点 children childNodes 节点类型 nodeType
 ```html
