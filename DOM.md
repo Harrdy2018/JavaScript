@@ -170,3 +170,62 @@ IE 10%,Chrome 60%,FF 99%
 * 获取getAttribute(名称)
 * 设置setAttribute(名称，值)
 * 删除removeAttribute(名称)
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oTxt=document.getElementById('txt1');
+            var oBtn=document.getElementById("btn1");
+            oBtn.onclick=function () {
+              //oTxt.value="I loe you!!!";
+              //oTxt["value"]="hehhe!!!";
+                oTxt.setAttribute("value","ahha you guys!!");
+            };
+        };
+    </script>
+</head>
+<body>
+<input type="text" id="txt1"/>
+<input id="btn1" type="button" value="按钮"/>
+</body>
+</html>
+```
+
+***
+# 元素灵活查找
+用className选择元素
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var oUl=document.getElementById("ul1");
+            var aLi=oUl.getElementsByTagName("li");
+            for(var i=0;i<aLi.length;i++){
+                if(aLi[i].className==="box")
+                {
+                    aLi[i].style.background="red";
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li class="box"></li>
+    <li class="box"></li>
+    <li></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+</ul>
+</body>
+</html>
+```
