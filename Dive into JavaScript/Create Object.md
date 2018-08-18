@@ -236,3 +236,26 @@ person1.showLove();
 这里对原型所做的修改，能够立即在所有实例中得到反映
 其次，if语句检查的可以是初始化之后应该存在的任何属性或方法，所以不必用一大堆的if语句检查每一个属性和方法，只要检查一个就行
 ```
+***
+## 寄生构造函数模式
+```js
+//下面创建对象的职业全为学生
+function Person(name)
+{
+    var o=new Object();
+    o.name=name;
+    o.job="student";
+    o.showLove=function ()
+    {
+        console.log("I love you very much!!!");
+    };
+    return o;
+}
+var person1=new Person("Harrdy");
+person1.showLove();
+```
+```
+这种模式的基本思想就是创建一个函数，该函数的作用仅仅是封装创建对象的代码，然后再返回新建的对象
+这个模式，除了使用new操作符并把使用的包装函数叫做构造函数之外，和工厂模式几乎一样
+构造函数如果不返回对象，默认也会返回一个新的对象，通过在构造函数的末尾添加一个return语句，可以重写调用构造函数时返回的值
+```
