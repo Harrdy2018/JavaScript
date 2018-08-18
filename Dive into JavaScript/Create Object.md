@@ -189,3 +189,25 @@ var person1=new Person("Harrdy");
 console.log(person1.constructor);//构造函数Person
 console.log(Person.prototype.constructor);//构造函数Person
 ```
+***
+## 组合使用构造函数模式和原型模式
+```
+这是使用最为广泛、认同度最高的一种创建自定义类型的方法。它可以解决上面那些模式的缺点
+使用此模式可以让每个实例都会有自己的一份实例属性副本，但同时又共享着对方法的引用
+这样的话，即使实例属性修改引用类型的值，也不会影响其他实例的属性值了
+```
+```js
+//下面创建对象的职业全为学生
+function Person(name)
+{
+    this.name=name;
+    this.friends=['A','B'];
+}
+Person.prototype.job="student"
+var person1=new Person("Harrdy");
+var person2=new Person("harrdy");
+person1.friends.push('C');
+console.log(person1.friends); //["A", "B", "C"]
+console.log(person2.friends); //["A", "B"]
+console.log(person1.friends === person2.friends); //false
+```
