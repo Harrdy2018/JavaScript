@@ -39,4 +39,4 @@
 ## DOM
 * [DOM基础](https://github.com/Harrdy2018/JavaScript/blob/master/DOM.md)
 ## 深入JavaScript系列
-* 
+* [深入JavaScript系列之创建对象的7种方法]()
