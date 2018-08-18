@@ -16,7 +16,7 @@
   * 运算符
   * 程序流程控制
   * Json
-* [深入JavaScript](https://github.com/Harrdy2018/JavaScript/blob/master/%E6%B7%B1%E5%85%A5JavaScript.md)
+* [初入JavaScript](https://github.com/Harrdy2018/JavaScript/blob/master/%E6%B7%B1%E5%85%A5JavaScript.md)
   * 函数返回值
   * 函数传参
     * 不定参
@@ -38,3 +38,5 @@
     * 无缝滚动
 ## DOM
 * [DOM基础](https://github.com/Harrdy2018/JavaScript/blob/master/DOM.md)
+## 深入JavaScript系列
+* 
