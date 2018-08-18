@@ -62,3 +62,106 @@ console.log(person1 instanceof Object);//true  Person.prototype在对象person2�
 2,可以通过new 关键字来创建对象实例，更像OO语言中创建对象实例
 ```
 * 缺点：内存泄漏
+***
+## 原型模式
+```js
+//下面创建对象的职业全为学生
+function Person(name)
+{
+    this.name=name;
+}
+Person.prototype.job="student";
+Person.prototype.sayHello=function ()
+{
+    console.log("Hello,I'am a student.");
+};
+var person1=new Person("Harrdy");
+var person2=new Person("harrdy");
+
+console.log(person1.constructor);//构造函数Person
+console.log(Person.prototype.constructor);//构造函数Person
+
+//第二种写法  更加简单的写法
+//下面创建对象的职业全为学生
+function Person(name)
+{
+    this.name=name;
+}
+Person.prototype=
+    {
+        job:"student",
+        sayHello:function ()
+        {
+            console.log("Hello,I'am a student.");
+        }
+    };
+var person1=new Person("Harrdy");
+var person2=new Person("harrdy");
+console.log(person1.constructor);//构造函数Object
+console.log(Person.prototype.constructor);//构造函数Object
+```
+* 优点
+```
+1,方法和属性共享  解决内存泄漏问题
+console.log(person1.job==person2.job);//true
+console.log(person1.sayHello==person2.sayHello);//true
+
+2,可以动态的添加原型对象的方法和属性，并直接反映在对象实例上
+var person1=new Person("Harrdy");
+Person.prototype.showLove=function ()
+{
+    console.log("I love you very much!!!");
+};
+person1.showLove();//I love you very much!!!
+```
+* 缺点
+```js
+在用第二种写法的时候
+将Person.prototype设置为等于一个以对象字面量形式创建的对象，但是会导致.constructor不在指向Person了。
+使用这种方式，完全重写了默认的Person.prototype对象，因此 .constructor也不会存在这里
+Person.prototype.constructor === Person  // false
+如果需要这个属性的话，可以手动添加
+
+//下面创建对象的职业全为学生
+function Person(name)
+{
+    this.name=name;
+}
+Person.prototype=
+    {
+        constructor: Person,
+        job:"student",
+        sayHello:function ()
+        {
+            console.log("Hello,I'am a student.");
+        }
+    };
+var person1=new Person("Harrdy");
+var person2=new Person("harrdy");
+console.log(person1.constructor);//构造函数Person
+console.log(Person.prototype.constructor);//构造函数Person
+
+不过这种方式还是不够好，应为constructor属性默认是不可枚举的，这样直接设置，它将是可枚举的。
+所以可以时候，Object.defineProperty方法
+//下面创建对象的职业全为学生
+function Person(name)
+{
+    this.name=name;
+}
+Person.prototype=
+    {
+        job:"student",
+        sayHello:function ()
+        {
+            console.log("Hello,I'am a student.");
+        }
+    };
+Object.defineProperty(Person.prototype, 'constructor',
+    {
+        enumerable: false,
+        value: Person
+    });
+var person1=new Person("Harrdy");
+console.log(person1.constructor);//构造函数Person
+console.log(Person.prototype.constructor);//构造函数Person
+```
