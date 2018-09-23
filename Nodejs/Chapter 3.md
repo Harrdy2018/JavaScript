@@ -1,7 +1,7 @@
 # Nodejs笔记 Chapter 2
 ## events模块
 
-## Example
+## simple Example
 ```js
 let events=require("events");
 let eventEmitter=new events.EventEmitter();
