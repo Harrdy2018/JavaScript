@@ -91,7 +91,7 @@ id: 2 name: harrdy age: 18
 
 ***
 * 建立数据库连接 隐式建立连接
-*** 我们并没有使用connect()函数建立连接，而且直接进行了查询，这时候建立连接将会被隐式地调用 ***
+***我们并没有使用connect()函数建立连接，而且直接进行了查询，这时候建立连接将会被隐式地调用
 ```js
 var mysql=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/mysql');
 var connection=mysql.createConnection({
