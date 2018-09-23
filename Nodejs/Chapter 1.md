@@ -59,6 +59,8 @@ MariaDB [harrdy]> select * from users;
 +----+--------+-----+
 2 rows in set (0.02 sec)
 ```
+
+***
 * 用Nodejs连接数据库
 ```js
 var mysql=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/mysql');
@@ -85,4 +87,28 @@ connection.end();
 [object Array] [object Object]
 id: 1 name: jack age: 22
 id: 2 name: harrdy age: 18
+```
+
+***
+* 建立数据库连接 隐式建立连接
+** 我们并没有使用connect()函数建立连接，而且直接进行了查询，这时候建立连接将会被隐式地调用
+```js
+var mysql=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/mysql');
+var connection=mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'',
+  database:'harrdy'
+});
+//connection.connect();
+connection.query('select * from users',function(err,results,fileds){
+  if(err) throw err;
+  console.log(results);
+  console.log(toString.call(results),toString.call(results[0]));
+  //console.log(fileds);
+  results.forEach(function(obj){
+    console.log("id: "+obj.id+" name: "+obj.name+" age: "+obj.age);
+  });
+});
+connection.end();
 ```
