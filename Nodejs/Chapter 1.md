@@ -52,4 +52,10 @@ connection.query('select * from users',function(err,results,fileds){
   });
 });
 connection.end();
+
+[ RowDataPacket { id: 1, name: 'jack', age: 22 },
+  RowDataPacket { id: 2, name: 'harrdy', age: 18 } ]
+[object Array] [object Object]
+id: 1 name: jack age: 22
+id: 2 name: harrdy age: 18
 ```
