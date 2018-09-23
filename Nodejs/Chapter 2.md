@@ -54,3 +54,18 @@ haha!!
 you know!!
 End!!
 ```
+
+***
+## 非阻塞代码实例
+***非阻塞是不需要按顺序的，所以如果需要处理回调函数的参数，我们就需要写在回调函数内***
+***我们不需要等待文件读取完，这样就可以在读取文件时同时执行接下来的代码，大大提高了程序的性能。***
+```js
+let fs=require('fs');
+fs.readFile('./data.txt',function(err,data){
+  if(err){
+    console.log(err);
+  }
+  console.log(data.toString());
+});
+console.log('End!!!');
+```
