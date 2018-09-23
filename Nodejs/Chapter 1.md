@@ -144,3 +144,17 @@ connection.query('select * from users',function(err,results,fileds){
 });
 connection.end();
 ```
+
+***
+* 关闭连接
+```
+打开了数据库的连接我们也需要关闭连接，有两种关闭连接的方式，一种就是我们上面用的end()方法来关闭连接，它可以接收一个回调函数。
+connection.end(function(err) {
+  // 这时连接已经被关闭了
+});
+通过end()函数关闭连接不会影响队列中的查询。
+
+还有一种方式是调用destroy()函数。
+connection.destroy();
+destroy()函数确保了没有更多的时间和回调会触发连接。同时destroy()函数也没有回调函数。
+```
