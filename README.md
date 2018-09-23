@@ -40,5 +40,5 @@
 * [DOM基础](https://github.com/Harrdy2018/JavaScript/blob/master/DOM.md)
 ## 深入JavaScript系列
 * [深入JavaScript系列之创建对象的7种方法](./Dive%20into%20JavaScript/Create%20Object.md)
-## NodeJs笔记
+## Nodejs笔记
 * 异步思想以及连接数据库
