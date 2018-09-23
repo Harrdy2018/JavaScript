@@ -44,3 +44,4 @@
 * [异步思想以及连接数据库](./Nodejs/Chapter%201.md)
 * [回调函数](./Nodejs/Chapter%202.md)
 * [events模块](./Nodejs/Chapter%203.md)
+* [http模块](./Nodejs/Chapter%204.md)
