@@ -158,3 +158,67 @@ connection.end(function(err) {
 connection.destroy();
 destroy()函数确保了没有更多的时间和回调会触发连接。同时destroy()函数也没有回调函数。
 ```
+
+***
+* 数据库连接池
+```
+通过上面的数据库连接方式我们会发现直接创建一个数据库连接比较“危险”，因为有很多种可能性导致连接的失败。
+而且如果我们的程序中随意都可以和数据库建立连接的话，我们的程序就比较得混乱，不能很有效的管理数据库连接。
+mysql库提供了另一种数据库连接方式给我们。
+
+数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个。
+这项技术能明显提高对数据库操作的性能
+
+数据库连接池在初始化的时候将一定数量（数量受最小连接数制约）的数据库连接存放到数据库连接池中，不管这些数据库连接是否被使用，
+连接池一直要存放这么多的连接数量。连接池的最大数据库连接数量限制了连接池最多能同时拥有的连接数，
+如果超过最大连接数时，请求将会被添加到等待队列中去。
+```
+
+***
+* 创建连接池
+```js
+var mysql=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/mysql');
+//通过createPool()方法创建了一个数据库连接池
+var pool=mysql.createPool({
+  host:'localhost',
+  user:'root',
+  password:'',
+  port:3306,
+  database:'harrdy',
+  //最大连接数，默认为10
+  connectionLimit:10
+});
+//每次我们需要和数据库建立连接的时候不再是直接建立连接，
+//而是去连接池中通过pool.getConnection()方法“捞取”已有的连接
+pool.getConnection(function(err,connection){
+  if(err){
+    console.log(err);
+  }
+  connection.query('select * from users',function(err,results){
+    //每次查询完数据库是都要使用release()方法释放数据库连接，这样数据库连接又回到了连接池中
+    //释放后如果再使用connection将会报错
+    connection.release();
+    if(err){
+      console.log(err);
+    }
+    results.forEach(function(obj){
+      console.log("id: "+obj.id+" name: "+obj.name+" age: "+obj.age);
+    });
+  });
+});
+/*
+pool.end(function (err) {
+  // 所有连接池中的数据库连接将会被关闭
+  console.log(err);
+})
+*/
+```
+
+***
+* 关闭连接池
+```js
+pool.end(function (err) {
+  // 所有连接池中的数据库连接将会被关闭
+  console.log(err);
+})
+```
