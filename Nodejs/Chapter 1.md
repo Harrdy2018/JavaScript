@@ -40,6 +40,26 @@ Time elapsed: 1016 ms
 
 ***
 ## 连接MySQL数据库
+* 新建表
+```MySQL
+MariaDB [harrdy]> show tables;
++------------------+
+| Tables_in_harrdy |
++------------------+
+| users            |
++------------------+
+1 row in set (0.08 sec)
+
+MariaDB [harrdy]> select * from users;
++----+--------+-----+
+| id | name   | age |
++----+--------+-----+
+|  1 | jack   |  22 |
+|  2 | harrdy |  18 |
++----+--------+-----+
+2 rows in set (0.02 sec)
+```
+* 用Nodejs连接数据库
 ```js
 var mysql=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/mysql');
 var connection=mysql.createConnection({
