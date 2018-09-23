@@ -42,4 +42,4 @@
 * [深入JavaScript系列之创建对象的7种方法](./Dive%20into%20JavaScript/Create%20Object.md)
 ## Nodejs笔记
 * [异步思想以及连接数据库](./Nodejs/Chapter%201.md)
-* [回调函数](./Nodejs/Chapter%201.md)
+* [回调函数](./Nodejs/Chapter%202.md)
