@@ -29,3 +29,27 @@ let execute=function(fun){
 };
 execute(hello);
 ```
+
+***
+## 阻塞代码实例
+* synchro 同步的
+```
+data.txt
+
+I love you 
+haha!!
+you know!!
+```
+```js
+let fs=require('fs');
+let data=fs.readFileSync('./data.txt');
+console.log(toString.call(data));
+console.log(data.toString());
+console.log("End!!");
+
+[object Uint8Array]
+I love you 
+haha!!
+you know!!
+End!!
+```
