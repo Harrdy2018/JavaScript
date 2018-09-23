@@ -68,4 +68,9 @@ fs.readFile('./data.txt',function(err,data){
   console.log(data.toString());
 });
 console.log('End!!!');
+
+End!!!
+I love you 
+haha!!
+you know!!
 ```
