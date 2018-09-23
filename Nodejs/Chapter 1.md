@@ -30,3 +30,26 @@ Hello World!<br>
 Hello World!<br>
 Time elapsed: 1016 ms
 ```
+
+***
+## 连接MySQL数据库
+```js
+var mysql=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/mysql');
+var connection=mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'',
+  database:'harrdy'
+});
+connection.connect();
+connection.query('select * from users',function(err,results,fileds){
+  if(err) throw err;
+  console.log(results);
+  console.log(toString.call(results),toString.call(results[0]));
+  //console.log(fileds);
+  results.forEach(function(obj){
+    console.log("id: "+obj.id+" name: "+obj.name+" age: "+obj.age);
+  });
+});
+connection.end();
+```
