@@ -112,3 +112,35 @@ connection.query('select * from users',function(err,results,fileds){
 });
 connection.end();
 ```
+
+***
+* 连接回调查询
+```
+上面两种连接方式并没有对连接出错的情况进行处理，一旦连接出现错误将带来连锁的多米诺骨牌效应，查询也将会失败，整个程序也会崩溃，
+为了避免出现这样的情况，我们将查询和关闭连接放到回调函数中
+```
+```js
+var mysql=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/mysql');
+var connection=mysql.createConnection({
+  host:'localhost',
+  user:'root',
+  password:'',
+  database:'harrdy'
+});
+connection.connect(function(err){
+  if(err){
+    //连接失败时的错误处理
+    console.log(err);
+  }
+});
+connection.query('select * from users',function(err,results,fileds){
+  if(err){
+    //查询失败时的错误处理
+    console.log(err);
+  }
+  results.forEach(function(obj){
+    console.log("id: "+obj.id+" name: "+obj.name+" age: "+obj.age);
+  });
+});
+connection.end();
+```
