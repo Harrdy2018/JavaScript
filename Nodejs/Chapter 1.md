@@ -28,5 +28,5 @@ Hello World!<br>
 Hello World!<br>
 Hello World!<br>
 Hello World!<br>
-Time elapsed: 1000 ms
+Time elapsed: 1016 ms
 ```
