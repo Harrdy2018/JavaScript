@@ -44,3 +44,25 @@ latest: 1.3.1        next: 2.0.0-alpha.6
 published 2 months ago by linusu <linus@folkdatorn.se>
 [harrdy@HJX node_modules]$ 
 ```
+
+***
+## simple exampel
+```js
+let express=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/express');
+//the express is a Function!!!
+console.log(toString.call(express));
+let app=express();
+
+app.get('/',function(req,res){
+  console.log(req);
+  console.log(res);
+  res.send('Hello World!!!');
+});
+
+let server=app.listen(8000,function(){
+  console.log(server.address());
+  let host=server.address().address;
+  let port=server.address().port;
+  console.log('The server is running at https://%s:%s',host,port);
+})
+```
