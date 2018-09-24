@@ -46,7 +46,7 @@ published 2 months ago by linusu <linus@folkdatorn.se>
 ```
 
 ***
-## simple exampel
+## simple example
 ```js
 let express=require('../mySoftware/node-v10.8.0-linux-x64/lib/node_modules/express');
 //the express is a Function!!!
