@@ -63,3 +63,14 @@ console.log(copy);//{a:1}
     console.log(o1);                    //{a:1,b:2,c:3}  注意目标对象自身也会改变
 </script>
 ```
+* 合并具有相同属性的对象
+```js
+<script>
+    //属性被后续参数中具有相同属性的其他对象覆盖
+    let o1 = { a: 1, b: 1, c: 1 };
+    let o2 = { b: 2, c: 2 };
+    let o3 = { c: 3 };
+    let obj = Object.assign({}, o1, o2, o3);
+    console.log(obj); // { a: 1, b: 2, c: 3 }
+</script>
+```
