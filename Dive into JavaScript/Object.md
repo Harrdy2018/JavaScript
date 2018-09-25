@@ -31,3 +31,6 @@ console.log(copy);//{a:1}
     console.log(JSON.stringify(obj2));       //{"a":2,"b":{"c":3}}
 </script>
 ```
+* 深拷贝
+```js
+```
