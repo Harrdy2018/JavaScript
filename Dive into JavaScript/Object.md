@@ -54,4 +54,12 @@ console.log(copy);//{a:1}
 ```
 * 合并对象
 ```js
+<script>
+    let o1={a:1};
+    let o2={b:2};
+    let o3={c:3};
+    let obj=Object.assign(o1,o2,o3);
+    console.log(obj);                   //{a:1,b:2,c:3}
+    console.log(o1);                    //{a:1,b:2,c:3}  注意目标对象自身也会改变
+</script>
 ```
