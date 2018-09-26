@@ -189,3 +189,34 @@ set
     person.name='lk';         //You have setting it
 </script>
 ```
+
+***
+### Object.defineProperties()
+* 给对象添加多个属性并分别指定它们的配置
+* ***Object.defineProperties(obj, props)***
+```js
+<script>
+    var obj={};
+    Object.defineProperties(obj,{
+        'property1':{
+            value:'AAAAA',
+            writable:true,
+            enumerable:true,
+            configurable:true
+        },
+        'property2':{
+            value:"BBBBB",
+            writable:false,
+            enumerable:false,
+            configurable:false
+        }
+    });
+    console.log(obj.property1);    //AAAAA
+    obj.property1='CCCCC';
+    console.log(obj.property1);    //CCCCC
+
+    console.log(obj.property2);    //BBBBB
+    obj.property2='CCCCC';
+    console.log(obj.property2);    //BBBBB
+</script>
+```
