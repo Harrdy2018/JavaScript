@@ -133,3 +133,22 @@ set
     console.log(someOne.name);//Harrdy
 </script>
 ```
+* Enumerable 属性
+```js
+<script>
+    //能否遍历
+    var someOne={};
+    Object.defineProperty(someOne,'name',{
+        value:"Harrdy",
+        enumerable:true
+    });
+    //for-in循环遍历
+    for(let key in someOne){
+        console.log(key);
+    }
+    //Object.keys()
+    Object.keys(someOne).forEach(function (key) {
+        console.log(key);
+    })
+</script>
+```
