@@ -119,3 +119,17 @@ set
     console.log(someOne.name);//Harrdy
 </script>
 ```
+* Configurable 属性 
+```js
+<script>
+    var someOne={};
+    Object.defineProperty(someOne,'name',{
+        value:"Harrdy",
+        configurable:false
+    });
+    delete someOne.name;
+    console.log(someOne.name);//Harrdy  删除属性无效
+    someOne.name="lk";
+    console.log(someOne.name);//Harrdy
+</script>
+```
