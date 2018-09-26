@@ -171,6 +171,7 @@ set
 </script>
 ```
 * 属性的修改器（setter）和获取器(getter)
+* ***疑惑 在这里无法设置值 一旦扯到this,person就会出现迭代错误***
 ```js
 <script>
     let person={
