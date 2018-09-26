@@ -106,3 +106,16 @@ set
 一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。当属性值修改时，触发执行该方法。该方法将接受唯一参数，
 即该属性新的参数值。默认为 undefined。
 ```
+* 数据描述符  writable
+```js
+<script>
+    var someOne={};
+    Object.defineProperty(someOne,'name',{
+        value:"Harrdy",  //由于设定了writable属性为false 导致这个量不可以修改
+        writable:false
+    });
+    console.log(someOne.name);//Harrdy
+    someOne.name="lk";
+    console.log(someOne.name);//Harrdy
+</script>
+```
