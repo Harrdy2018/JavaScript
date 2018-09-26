@@ -170,3 +170,21 @@ set
     //{value: "Harrdy", writable: false, enumerable: false, configurable: false}
 </script>
 ```
+* 属性的修改器（setter）和获取器(getter)
+```js
+<script>
+    let person={
+        name:'Harrdy'
+    };
+    Object.defineProperty(person,'name',{
+       get:function () {
+           console.log("You have getting it");
+       },
+       set:function () {
+           console.log("You have setting it");
+       }
+    });
+    person.name;              //You have getting it
+    person.name='lk';         //You have setting it
+</script>
+```
