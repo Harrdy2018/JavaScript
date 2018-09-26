@@ -152,3 +152,21 @@ set
     })
 </script>
 ```
+* 一般方法指定属性值与Object.defineProperty()指定属性值它们的属性描述符不一样
+```js
+<script>
+    //一般方法指定属性值
+    var someOne={};
+    someOne.name="Harrdy";
+    console.log(Object.getOwnPropertyDescriptor(someOne,'name'));
+    //{value: "Harrdy", writable: true, enumerable: true, configurable: true}
+
+    //Object.defineProperty()指定属性值
+    var otherOne={};
+    Object.defineProperty(otherOne,'name',{
+        value:"Harrdy"
+    });
+    console.log(Object.getOwnPropertyDescriptor(otherOne,'name'));
+    //{value: "Harrdy", writable: false, enumerable: false, configurable: false}
+</script>
+```
