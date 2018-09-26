@@ -106,7 +106,7 @@ set
 一个给属性提供 setter 的方法，如果没有 setter 则为 undefined。当属性值修改时，触发执行该方法。该方法将接受唯一参数，
 即该属性新的参数值。默认为 undefined。
 ```
-* 数据描述符  writable
+* Writable 属性
 ```js
 <script>
     var someOne={};
