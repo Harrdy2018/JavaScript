@@ -1,10 +1,12 @@
 # Object对象
 * Object.assign()
+* Object.create()
 * Object.defineProperty()
 * Object.defineProperties()
 * Object.getOwnPropertyDescriptor()
 * Object.getOwnPropertyDescriptors()
 * Object.keys()
+* Object.values()
 
 ***
 ### Object.assign()
@@ -79,6 +81,13 @@ console.log(copy);//{a:1}
     let obj = Object.assign({}, o1, o2, o3);
     console.log(obj); // { a: 1, b: 2, c: 3 }
 </script>
+```
+
+***
+### Object.create()
+* 使用指定的原型对象和属性创建一个新对象
+* ***Object.create(proto, [propertiesObject])***
+```js
 ```
 
 ***
