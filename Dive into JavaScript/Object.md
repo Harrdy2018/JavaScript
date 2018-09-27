@@ -255,3 +255,42 @@ set
     console.log(JSON.stringify(v1));                                //{"x":2,"y":1}
 </script>
 ```
+
+***
+### Object.getOwnPropertyDescriptor()
+* 返回对象指定的属性配置
+* ***Object.getOwnPropertyDescriptor(obj, prop)***
+```js
+<script>
+    var person={
+        name:"Harrdy",
+        age:18
+    };
+    var desc=Object.getOwnPropertyDescriptor(person,'name');
+    console.log(desc);
+    console.log(JSON.stringify(desc));
+    //{"value":"Harrdy","writable":true,"enumerable":true,"configurable":true}
+</script>
+```
+
+***
+### Object. getOwnPropertyDescriptors()
+* 所指定对象的所有自身属性的描述符，如果没有任何自身属性，则返回空对象
+* ***Object.getOwnPropertyDescriptors(obj)***
+```js
+<script>
+    var person={
+        name:"Harrdy",
+        age:18
+    };
+    var descs=Object.getOwnPropertyDescriptors(person);
+    console.log(descs);
+    console.log(JSON.stringify(descs));
+    /*
+    {
+        "name":{"value":"Harrdy","writable":true,"enumerable":true,"configurable":true},
+        "age":{"value":18,"writable":true,"enumerable":true,"configurable":true}
+    }
+    */
+</script>
+```
