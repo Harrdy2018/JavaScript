@@ -1,4 +1,9 @@
 # Object对象
+* Object.assign()
+* Object.defineProperty()
+* Object.defineProperties()
+* Object.getOwnPropertyDescriptor()
+* Object.getOwnPropertyDescriptors()
 
 ***
 ### Object.assign()
@@ -274,7 +279,7 @@ set
 ```
 
 ***
-### Object. getOwnPropertyDescriptors()
+### Object.getOwnPropertyDescriptors()
 * 所指定对象的所有自身属性的描述符，如果没有任何自身属性，则返回空对象
 * ***Object.getOwnPropertyDescriptors(obj)***
 ```js
