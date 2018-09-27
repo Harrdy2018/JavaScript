@@ -4,6 +4,7 @@
 * Object.defineProperties()
 * Object.getOwnPropertyDescriptor()
 * Object.getOwnPropertyDescriptors()
+* Object.keys()
 
 ***
 ### Object.assign()
@@ -297,5 +298,33 @@ set
         "age":{"value":18,"writable":true,"enumerable":true,"configurable":true}
     }
     */
+</script>
+```
+
+***
+### Object.keys()
+* 返回一个包含所有给定对象自身可枚举属性名称的数组
+* ***Object.keys(obj)***
+```js
+<script>
+    var arr=[1,2,3];
+    console.log(Object.keys(arr));   //数组键["0", "1", "2"]
+
+    var obj={'a':1,'c':2,'d':4};
+    console.log(Object.keys(obj));   //["a", "c", "d"]
+</script>
+```
+
+***
+### Object.values()
+* 返回给定对象自身可枚举值的数组
+* ***Object.values(obj)***
+```js
+<script>
+    var arr=[1,2,3];
+    console.log(Object.values(arr));   //属性值数组[1,2,3]
+
+    var obj={'a':1,'c':2,'d':4};
+    console.log(Object.values(obj));   //[1,2,4]
 </script>
 ```
