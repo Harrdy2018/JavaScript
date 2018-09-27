@@ -103,6 +103,35 @@ console.log(copy);//{a:1}
     console.log(person.age);                //undefined
 </script>
 ```
+* 使用 Object.create() 的 propertiesObject参数
+```js
+<script>
+    function Person() {
+        this.name="Harrdy";
+        this.age='18';
+    }
+    var p1=new Person();
+    var p=Object.create(p1,{
+       isBoy:{
+           writable:true,
+           configurable:true,
+           value:true
+       },
+        fff:{
+           get:function () {
+               console.log(this);           //this代表p,p就是实例
+               console.log("you are getting it");
+           },
+            set:function (value) {
+                console.log("you are setting it");
+            }
+        }
+    });
+    console.log(p.name,p.age,p.isBoy);     //Harrdy 18 true
+    p.fff="hahhahh";
+    p.fff;
+</script>
+```
 
 ***
 ### Object.defineProperty()
