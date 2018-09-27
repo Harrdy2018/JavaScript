@@ -220,3 +220,38 @@ set
     console.log(obj.property2);    //BBBBB
 </script>
 ```
+* three.js 构建平面向量对象源码
+```js
+<script>
+    function Vector2( x, y ) {
+		this.x = x || 0;
+		this.y = y || 0;
+	}
+	Object.defineProperties( Vector2.prototype, {
+		"width": {
+            get: function () {
+                console.log(this.__proto__===Vector2.prototype);    //true
+                console.log(this);                                  //这里this指的是Vector2对象的实例，即v1
+				return this.x;
+			},
+			set: function ( value ) {
+                console.log(this.__proto__===Vector2.prototype);    //true
+				this.x = value;
+			}
+		},
+		"height": {
+			get: function () {
+				return this.y;
+			},
+			set: function ( value ) {
+				this.y = value;
+			}
+		}
+	});
+    var v1=new Vector2(1,1);
+    v1.width;
+    console.log(JSON.stringify(v1));                                //{"x":1,"y":1}
+    v1.width=2;
+    console.log(JSON.stringify(v1));                                //{"x":2,"y":1}
+</script>
+```
