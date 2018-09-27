@@ -87,7 +87,21 @@ console.log(copy);//{a:1}
 ### Object.create()
 * 使用指定的原型对象和属性创建一个新对象
 * ***Object.create(proto, [propertiesObject])***
+* 简单的例子，相当于新对象在原型链上面
 ```js
+<script>
+    var person={
+        name:'Harrdy',
+        isBoy:true
+    };
+    var p=Object.create(person);
+    console.log(p.__proto__===person);      //true
+    console.log(p.name);                    //Harrdy
+    console.log(p.isBoy);                   //true
+
+    p.age=18;
+    console.log(person.age);                //undefined
+</script>
 ```
 
 ***
