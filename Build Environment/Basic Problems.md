@@ -1,7 +1,8 @@
 # 基本问题
 
 ***
-## --save-dev和--save
+## 好好学习 package.json
+### --save-dev和--save
 ```
 –save-dev 是你开发时候依赖的东西，–save 是你发布之后还依赖的东西
 
