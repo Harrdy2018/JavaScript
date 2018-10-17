@@ -1,7 +1,7 @@
 # 基本问题
 
 ***
-## 好好学习 package.json
+## 好好学 package.json
 ### --save-dev 和 --save
 ```
 –save-dev 是你开发时候依赖的东西，–save 是你发布之后还依赖的东西
@@ -13,7 +13,7 @@
 ```
 
 ***
-## 好好学习 npm
+## 好好学 npm
 ### npm 装包技巧
 ```
 设置npm为淘宝镜像
