@@ -11,3 +11,6 @@
 
 如果我用了 jQuery，由于发布之后还是依赖jQuery，所以是 ‘npm install jquery –save’
 ```
+
+***
+## 好好学习 npm
