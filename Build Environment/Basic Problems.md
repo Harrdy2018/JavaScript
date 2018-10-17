@@ -14,6 +14,27 @@
 
 ***
 ## 好好学习 npm
+### npm 装包技巧
+```
+设置npm为淘宝镜像
+npm config set registry https://registry.npm.taobao.org
+
+设置npm为南邮镜像
+npm config set registry https://mirrors.njupt.edu.cn/nexus/repository/npm/
+
+查看镜像的配置结果
+[harrdy@localhost ~]$ npm config get registry
+https://registry.npm.taobao.org/
+
+临时使用镜像来安装包
+npm install some-package --registry=https://mirrors.njupt.edu.cn/nexus/repository/npm/
+
+设为默认  修改 ~/.npmrc,如果没有则创建一个
+registry=https://mirrors.njupt.edu.cn/nexus/repository/npm/
+
+有时候设置镜像都下载不了，但是手动可以下载，则手动安装
+npm install --save-dev /home/harrdy/Downloads/style-loader-0.13.2.tgz
+```
 
 ***
 ## 好好学 Vue
