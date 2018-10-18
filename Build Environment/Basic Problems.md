@@ -49,6 +49,11 @@ let person=(str)=>({
   name: str
 });
 console.log(person("Harrdy"),toString.call(person));  //{name: "Harrdy"} "[object Function]"
+
+箭头函数看上去是匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是词法作用域，由上下文确定
+现在，箭头函数完全修复了this的指向，this总是指向词法作用域，也就是外层调用者
+
+在配置文件中箭头函数一般作匿名函数的用处
 ```
 
 ***
