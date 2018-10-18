@@ -19,12 +19,36 @@
 该配置文件出现了大量的箭头函数，我们需要了解他
 let pow=x=>x*x;
 console.log(pow);
-console.log(pow(10));
+console.log(pow(10));//100
 
 ƒ pow(x) {
   return x * x;
 }
-100
+
+//两个参数
+let add=(x,y)=>x+y;
+console.log(add(1,2));  //3
+
+//无参数  这里在配置文件中运用的最多了
+let a=()=>123;
+console.log(a());    //123
+
+//可变参数
+let addMore=(x,y,...rest)=>{
+  console.log(rest);            //[3,4]
+  let i,sum=x+y;
+  rest.forEach(function(item){
+    sum+=item;
+  });
+  return sum;
+};
+console.log(addMore(1,2,3,4));  //10
+
+//返回对象
+let person=(str)=>({
+  name: str
+});
+console.log(person("Harrdy"),toString.call(person));  //{name: "Harrdy"} "[object Function]"
 ```
 
 ***
