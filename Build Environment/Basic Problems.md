@@ -16,6 +16,15 @@
 ## 好好学 webpack.config.js
 ### 箭头函数
 ```
+该配置文件出现了大量的箭头函数，我们需要了解他
+let pow=x=>x*x;
+console.log(pow);
+console.log(pow(10));
+
+ƒ pow(x) {
+  return x * x;
+}
+100
 ```
 
 ***
