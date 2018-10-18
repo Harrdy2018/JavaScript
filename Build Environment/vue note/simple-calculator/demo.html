@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div class="app">
+      <input type="text" v-model="n1">
+      <select v-model="opt">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <input type="text" v-model="n2">
+      <input type="button" value="=" @click="calc">
+      <input type="text" v-model="result">
+    </div>
+  </body>
+</html>
