@@ -55,7 +55,8 @@ console.log(person("Harrdy"),toString.call(person));  //{name: "Harrdy"} "[objec
 
 在配置文件中箭头函数一般作匿名函数的用处
 ```
-* ***[跑马灯 sorce code](./source%20code/pmd.js)***
+* ***[跑马灯 sorce code js](./source%20code/pmd.js)***
+* ***[跑马灯 sorce code html](./source%20code/pmd.html)***
 
 ***
 ## 好好学 npm
