@@ -170,3 +170,50 @@ var vm=new Vue({
   </body>
 </html>
 ```
+
+***
+* 改进，将对象放在vue data里面去
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      .red{
+        color: red;
+      }
+      .thin{
+        font-size: 25px;
+      }
+      .italic{
+        font-style: italic;
+      }
+      .active{
+        letter-spacing: 0.5em;
+        word-spacing: 0.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-bind:class="classObj">She is a very pretty girl !!!</h1>
+    </div>
+  </body>
+</html>
+```
+```js
+import Vue from "vue";
+
+var vm=new Vue({
+  el: "#app",
+  data: {
+    classObj: {
+      red: true,
+      thin: false
+    }
+  },
+  methods: {
+  }
+});
+```
