@@ -63,3 +63,25 @@ var vm=new Vue({
   
 <p v-for="(user,i) in list">key: {{i}}---id: {{user.id}}---name: {{user.name}}</p>
 ```
+
+***
+* v-for 循环对象
+```
+//遍历是对象的时候 有 key,value,index三个属性
+  data: {
+    user: {
+      id: 1,
+      name: 'harrdy',
+      age: 18
+    }
+  },
+  
+  <p v-for="(value,key,index) in user">key: {{key}}---value: {{value}}---index: {{index}}</p>
+```
+
+***
+* v-for迭代数字
+```
+//count 从1开始
+<p v-for="count in 10">{{count}}</p>
+```
