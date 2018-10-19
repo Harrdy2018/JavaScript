@@ -221,4 +221,4 @@ var vm=new Vue({
 ***
 #### 使用内联样式
 * 直接在元素上通过 :style 书写样式对象
-`<h1 v-bind:style="{color: 'red','font-size': '25px'}">She is a very pretty girl !!!</h1>`
+```<h1 v-bind:style="{color: 'red','font-size': '25px'}">She is a very pretty girl !!!</h1>```
