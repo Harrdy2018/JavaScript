@@ -224,3 +224,11 @@ var vm=new Vue({
 ```html
 <h1 v-bind:style="{color: 'red','font-size': '25px'}">She is a very pretty girl !!!</h1>
 ```
+* 将样式对象定义到data中，并引用到 :style中
+```
+data: {
+    styleObj: {color: 'red','font-size': '25px'}
+  },
+  
+<h1 v-bind:style="styleObj">She is a very pretty girl !!!</h1>
+```
