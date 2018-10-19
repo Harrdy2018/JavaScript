@@ -88,6 +88,7 @@ var vm=new Vue({
 
 ***
 * **2.2.0+的版本里，当在组件里使用v-for的时候，key值是必须的**
+* key只要是唯一的标志就可以了，number 或者 string 
 ```js
 import Vue from "vue";
 
