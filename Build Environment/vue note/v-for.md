@@ -44,4 +44,22 @@ var vm=new Vue({
     </div>
   </body>
 </html>
+
+//提取数组的key value
+ <p v-for="(item,i) in list">key: {{i}}---value: {{ item }}</p>
+```
+
+***
+* 循环对象数组
+```
+  data: {
+    list: [
+      {'id':1,'name':'a'},
+      {'id':2,'name':'b'},
+      {'id':3,'name':'c'},
+      {'id':4,'name':'d'},
+    ]
+  },
+  
+<p v-for="(user,i) in list">key: {{i}}---id: {{user.id}}---name: {{user.name}}</p>
 ```
