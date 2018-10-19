@@ -85,3 +85,6 @@ var vm=new Vue({
 //count 从1开始
 <p v-for="count in 10">{{count}}</p>
 ```
+
+***
+* **2.2.0+的版本里，当在组件里使用v-for的时候，key值是必须的**
