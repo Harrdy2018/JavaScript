@@ -106,3 +106,35 @@ var vm=new Vue({
   }
 });
 ```
+
+***
+* 数组中嵌套对象，避免三元表达式的麻烦
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      .red{
+        color: red;
+      }
+      .thin{
+        font-size: 25px;
+      }
+      .italic{
+        font-style: italic;
+      }
+      .active{
+        letter-spacing: 0.5em;
+        word-spacing: 0.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-bind:class="['red','thin','italic',{'active': flag}]">She is a very pretty girl !!!</h1>
+    </div>
+  </body>
+</html>
+```
