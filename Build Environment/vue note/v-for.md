@@ -88,3 +88,49 @@ var vm=new Vue({
 
 ***
 * **2.2.0+的版本里，当在组件里使用v-for的时候，key值是必须的**
+```js
+import Vue from "vue";
+
+var vm=new Vue({
+  el: "#app",
+  data: {
+    id: '',
+    name: '',
+    list: [
+      {id: 1,name: 'zz'},
+      {id: 2,name: 'lk'},
+    ]
+  },
+  methods: {
+    add(){
+      //this.list.push({id: this.id,name: this.name});
+      this.list.unshift({id: this.id,name: this.name});
+    }
+  }
+});
+```
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <label>id
+          <input type="text" v-model="id">
+        </label>
+        <label>name
+          <input type="text" v-model="name">
+        </label>
+        <input type="button" value="add" @click='add'>
+      </div>
+     <p v-for="item in list" v-bind:key="item.id">
+       <input type="checkbox" name="" id="">{{item.id}}---{{item.name}}
+     </p>
+    </div>
+  </body>
+</html>
+```
