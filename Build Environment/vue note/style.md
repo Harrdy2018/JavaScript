@@ -232,3 +232,12 @@ data: {
   
 <h1 v-bind:style="styleObj">She is a very pretty girl !!!</h1>
 ```
+* 通过数组引用多个data中的样式对象
+```
+  data: {
+    styleObjA: {color: 'red','font-size': '25px'},
+    styleObjB: {'font-weight': '200',fontStyle: 'italic'},
+  },
+  
+<h1 v-bind:style="[styleObjA,styleObjB]">She is a very pretty girl !!!</h1>
+```
