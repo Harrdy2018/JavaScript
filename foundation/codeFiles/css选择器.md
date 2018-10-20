@@ -248,6 +248,22 @@ p>i:first-child{color: red}
     </p>
 </body>
 ```
+* p:first-child i 匹配所有作为第一个子元素的 <p> 元素中的所有 <i> 元素
+```html
+p:first-child i{color: red}
+<body>
+    <p>
+        <i>1</i>
+        <i>1</i>
+        <i>1</i>
+    </p>
+    <p>
+        <i>1</i>
+        <i>1</i>
+        <i>1</i>
+    </p>
+</body>
+```
 
 ***
 ## css伪元素 CSS伪元素是用来添加一些选择器的特殊效果。
