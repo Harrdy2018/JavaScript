@@ -25,3 +25,46 @@
 
 ***
 ### 类选择器（class selector，CS）：使用 . 标识selector
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .name{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p class="name">Hello World !!</p>
+</body>
+<script>
+
+</script>
+</html>
+```
+
+***
+### 元素选择器（element selector，ES）：又叫标签选择器，使用标签名作为selector名
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <p>Hello World !!</p>
+</body>
+<script>
+
+</script>
+</html>
+```
