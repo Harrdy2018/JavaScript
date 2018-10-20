@@ -133,7 +133,7 @@
 
 ***
 ### 兄弟选择器（brother selector，BS）：BS是CSS3.0新增的一个选择器，语法格式：A~B{...}
-* 因为是兄弟，div+p 选择每个div紧邻后的所有兄弟
+* 因为是兄弟，div+p 选择每个div紧邻后的所有兄弟即p标签
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -161,7 +161,7 @@
 
 ***
 ### 相邻选择器，语法格式：div+p
-*  选择每个div紧邻后的一个元素p 因为是相邻的，所以只选择一个
+*  选择每个div紧邻后的一个元素p 因为是相邻的，所以只选择一个p
 ```html
 <!DOCTYPE html>
 <html lang="en">
