@@ -215,11 +215,27 @@
 ***
 ## css伪类 (Pseudo-classes) CSS伪类是用来添加一些选择器的特殊效果。
 * anchor伪类  在支持 CSS 的浏览器中，链接的不同状态都可以以不同的方式显示
+* ***link 和 visited放在一起可能导致无效，只显示visited设置的颜色***
 ```css
 a:link {color:#FF0000;} /* 未访问的链接 */
 a:visited {color:#00FF00;} /* 已访问的链接 */
 a:hover {color:#FF00FF;} /* 鼠标划过链接 */
 a:active {color:#0000FF;} /* 已选中的链接 */
+```
+* 伪类可以与 CSS 类配合使用
+* ***处于安全的考虑可能无效，别人知道过你访问过的网页，你说有木有危险***
+```css
+a.red:visited {color:#FF0000;}
+<a class="red" href="https://www.baidu.com" target="_blank">baidu</a>
+```
+* p:first-child 匹配第一个p元素
+```html
+p:first-child{color: red}
+<body>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+</body>
 ```
 
 ***
