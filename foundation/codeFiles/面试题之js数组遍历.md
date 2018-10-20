@@ -19,7 +19,6 @@ forEach中传入要执行的回调函数，函数有三个参数。
 第一个参数为数组元素(必选)，
 第二个参数为数组元素索引值(可选)，
 第三个参数为数组本身(可选)
-arr.forEach(value,[index,array]);
 ```
 ```js
 //使用匿名函数
@@ -45,3 +44,44 @@ arr.forEach(value,[index,array]);
     });
 </script>
 ```
+
+* map 循环
+```
+map()中传入要执行的回调函数，函数有三个参数。
+第一个参数为数组元素(必选)，
+第二个参数为数组元素索引值(可选)
+第三个参数为数组本身(可选)
+还可以有返回值
+```
+```js
+//使用匿名函数
+<script>
+    let arr=['a','b','c','d','e'];
+    arr.map(function (item,index,array) {
+        console.log(item);  //a b c d e
+        console.log(index); //0 1 2 3 4
+        console.log(array); //["a", "b", "c", "d", "e"]
+    });
+</script>
+```
+```js
+//使用箭头函数
+<script>
+    let arr=['a','b','c','d','e'];
+    arr.map((item,index,array)=>{
+        console.log(item);  //a b c d e
+        console.log(index); //0 1 2 3 4
+        console.log(array); //["a", "b", "c", "d", "e"]
+    });
+</script>
+```
+```js
+//返回值情况
+<script>
+    let arr=['a','b','c','d','e'];
+    newArr=arr.map((item,index,array)=>{
+        return item+'harrdy';
+    });
+    console.log(newArr); // ["aharrdy", "bharrdy", "charrdy", "dharrdy", "eharrdy"]
+</script>
+````
