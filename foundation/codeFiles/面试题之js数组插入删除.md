@@ -37,3 +37,11 @@ findIndex 不会改变数组对象
 * arrayObj.splice(start, deleteCount, [item1[, item2[, . . . [,itemN]]]])
 * 从一个数组中移除元素，如有必要，在所移除元素的位置上插入新元素，并返回所移除的元素
 * splice 方法通过移除从 start 位置开始的指定个数的元素并插入新元素来修改 arrayObj。返回值是一个由所移除的元素组成的新 Array 对象
+
+***
+* arrayObj.unshift([item1[, item2 [, . . . [, itemN]]]])
+* unshift 方法将这些元素插入到一个数组的开头，以便它们按其在参数表中的次序排列。
+
+***
+* arrayObj.pop( )
+* 从数组中移除最后一个元素并返回该元素
