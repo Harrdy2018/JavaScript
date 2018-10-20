@@ -6,12 +6,21 @@
 <script>
     let arr=['a','b','c','d','e'];
     for(let i=0,len=arr.length;i<len;i++){
-        console.log(this,i,arr[i]);
+        console.log(this); //Window对象
+        console.log(i);    //0 1 2 3 4
+        console.log(arr[i]); //a b c d e
     };
 </script>
 ```
 
 * forEach 循环
+```
+forEach中传入要执行的回调函数，函数有三个参数。
+第一个参数为数组元素(必选)，
+第二个参数为数组元素索引值(可选)，
+第三个参数为数组本身(可选)
+arr.forEach(value,[index,array]);
+```
 ```js
 //使用匿名函数
 <script>
