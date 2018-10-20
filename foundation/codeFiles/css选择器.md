@@ -68,3 +68,32 @@
 </script>
 </html>
 ```
+
+***
+### 包含选择器（package selector，PS）：指定目标选择器必须处在某个选择器对应的元素内部
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            color: red;
+        }
+        div p{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p>red text</p>
+    <div>
+        <p>yellow text</p>
+    </div>
+</body>
+<script>
+
+</script>
+</html>
+```
