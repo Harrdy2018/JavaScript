@@ -214,7 +214,13 @@
 
 ***
 ## css伪类 (Pseudo-classes) CSS伪类是用来添加一些选择器的特殊效果。
-
+* anchor伪类  在支持 CSS 的浏览器中，链接的不同状态都可以以不同的方式显示
+```css
+a:link {color:#FF0000;} /* 未访问的链接 */
+a:visited {color:#00FF00;} /* 已访问的链接 */
+a:hover {color:#FF00FF;} /* 鼠标划过链接 */
+a:active {color:#0000FF;} /* 已选中的链接 */
+```
 
 ***
 ## css伪元素 CSS伪元素是用来添加一些选择器的特殊效果。
