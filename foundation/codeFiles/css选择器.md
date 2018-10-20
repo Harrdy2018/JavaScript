@@ -97,3 +97,32 @@
 </script>
 </html>
 ```
+
+***
+### 子选择器（sub-selector，SS）：类似于PS，指定目标选择器必须处在某个选择器对应的元素内部
+* 两者区别在于PS允许"子标签"甚至"孙子标签"及嵌套更深的标签匹配相应的样式，而SS强制指定目标选择器作为 包含选择器对应的标签 内部的标签，
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div>p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>red text</p>
+        <span>
+            <p>not red text</p>
+        </span>
+    </div>
+</body>
+<script>
+
+</script>
+</html>
+```
