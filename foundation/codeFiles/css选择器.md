@@ -161,6 +161,35 @@
 ```
 
 ***
+### 相邻选择器，语法格式：div+p
+*  选择每个div紧邻后的一个元素p
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div+p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>not red text</p>
+        <p>not red text</p>
+    </div>
+    <p>red text</p>
+    <p>not red text</p>
+</body>
+<script>
+
+</script>
+</html>
+```
+
+***
 ### 通用选择器 语法形式为：*{属性：属性值}。它的作用是匹配 html 中的所有元素标签
 ```html
 <!DOCTYPE html>
