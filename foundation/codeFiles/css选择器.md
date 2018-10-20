@@ -237,6 +237,17 @@ p:first-child{color: red}
     <p>123</p>
 </body>
 ```
+* p>i:first-child 匹配为p的子元素i,并且是第一个i
+```html
+p>i:first-child{color: red}
+<body>
+    <p>
+        <i>1</i>
+        <i>1</i>
+        <i>1</i>
+    </p>
+</body>
+```
 
 ***
 ## css伪元素 CSS伪元素是用来添加一些选择器的特殊效果。
