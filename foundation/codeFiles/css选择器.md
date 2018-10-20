@@ -266,4 +266,68 @@ p:first-child i{color: red}
 ```
 
 ***
-## css伪元素 CSS伪元素是用来添加一些选择器的特殊效果。
+## css伪元素 CSS伪元素是用来添加一些选择器的特殊效果
+* p:first-line{color: red} 对 p 元素的第一行文本进行格式化
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>Title</title>
+    <style>
+        p:first-line{color: red}
+    </style>
+</head>
+<body>
+   <p>
+       hhha<br>
+       hahha
+   </p>
+</body>
+</html>
+```
+* p:first-letter{color: red} 向文本的首字母设置特殊样式
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>Title</title>
+    <style>
+        p:first-letter{color: red}
+    </style>
+</head>
+<body>
+   <p>
+       hhha<br>
+       hahha
+   </p>
+</body>
+</html>
+```
+* 伪元素可以结合CSS类
+```
+p.article:first-letter {color:#ff0000;}
+<p class="article">文章段落</p>
+上面的例子会使所有 class 为 article 的段落的首字母变为红色。
+```
+* p:before{content: "you are a giel"} 在元素的内容前面插入新内容
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>Title</title>
+    <style>
+        p:before{content: "you are a giel"}
+    </style>
+</head>
+<body>
+   <p>hhha</p>
+</body>
+</html>
+```
+* ":after" 伪元素可以在元素的内容之后插入新内容
