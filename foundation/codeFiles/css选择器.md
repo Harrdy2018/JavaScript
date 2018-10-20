@@ -130,3 +130,27 @@
 ***
 ### 兄弟选择器（brother selector，BS）：BS是CSS3.0新增的一个选择器，语法格式：A~B{...}
 * （A、B为HTML元素/标签，表示A标签匹配selector的A，B标签匹配selector的B时，B标签匹配样式）
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div~p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>no red text</p>
+        <div>no red text</div>
+        <p>red text</p>
+    </div>
+</body>
+<script>
+
+</script>
+</html>
+```
