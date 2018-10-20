@@ -158,3 +158,27 @@
 </script>
 </html>
 ```
+
+***
+### 通用选择器 语法形式为：*{属性：属性值}。它的作用是匹配 html 中的所有元素标签
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>red text</p>
+    <h3>red text</h3>
+</body>
+<script>
+
+</script>
+</html>
+```
