@@ -171,3 +171,26 @@ console.log(readFile);  //[Function: readFile]
 console.log(toString.call(readFile));  //[object Function]
 //也就是需要什么函数就加载什么函数，而不是全部加载
 ```
+* 异步读取文件，也就是无阻塞
+```js
+let {readFile}=require('fs');
+readFile('./data.txt',(err,data)=>{
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log(data);  //data是内存中的形式
+        console.log(data.toString());
+    } 
+});
+console.log("end !!");   //异步方式读取，会先输出此语句
+
+[harrdy@localhost myNodejs]$ node ./test.js
+end !!
+<Buffer 79 6f 75 20 61 72 65 20 61 20 76 65 72 79 20 62 65 61 75 74 69 66 75 6c 20 67 69 72 6c 21 0a 68 61 68 61 21 21 0a 49 20 6c 6f 76 65 20 79 6f 75 20 76 ... >
+you are a very beautiful girl!
+haha!!
+I love you very much .
+you know?
+[harrdy@localhost myNodejs]$
+```
