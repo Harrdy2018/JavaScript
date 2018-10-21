@@ -326,3 +326,22 @@ fs.open('./data.txt','a+',(err,fd)=>{
 });
 console.log('end !!!');
 ```
+
+***
+### 关闭文件
+* 以下为异步模式下关闭文件的语法格式：fs.close(fd, callback)  该方法使用了文件描述符来关闭文件。
+```
+let fs=require('fs');
+console.log("start open ...");
+fs.open('./data.txt','r+',(err,fd)=>{
+    if(err) return err;
+    console.log(fd);
+    console.log("open success !!!");
+    console.log("start close ...");
+    fs.close(fd,err=>{
+        if(err) return err;
+        console.log("close success !!!");
+    });
+});
+console.log('end !!!');js
+```
