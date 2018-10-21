@@ -76,3 +76,16 @@ console.log(path.extname('data'));
 
 [harrdy@localhost myNodejs]$
 ```
+
+***
+### 属性
+```
+path.sep
+平台的文件路径分隔符，'\\' 或 '/'。
+path.delimiter
+平台的分隔符, ; or ':'.
+path.posix
+提供上述 path 的方法，不过总是以 posix 兼容的方式交互。
+path.win32
+提供上述 path 的方法，不过总是以 win32 兼容的方式交互。
+```
