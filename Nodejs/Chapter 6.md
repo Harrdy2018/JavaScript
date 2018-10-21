@@ -194,3 +194,20 @@ I love you very much .
 you know?
 [harrdy@localhost myNodejs]$
 ```
+* 同步读取文件 也就是一步一步输出运行
+```js
+let {readFileSync}=require('fs');
+let data=readFileSync('./data.txt');
+console.log(data);
+console.log(data.toString());
+console.log("end !!");      //最后输出此语句
+
+[harrdy@localhost myNodejs]$ node ./test.js
+<Buffer 79 6f 75 20 61 72 65 20 61 20 76 65 72 79 20 62 65 61 75 74 69 66 75 6c 20 67 69 72 6c 21 0a 68 61 68 61 21 21 0a 49 20 6c 6f 76 65 20 79 6f 75 20 76 ... >
+you are a very beautiful girl!
+haha!!
+I love you very much .
+you know?
+end !!
+[harrdy@localhost myNodejs]$
+```
