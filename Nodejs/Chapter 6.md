@@ -309,3 +309,20 @@ start read file ...
 hahhahah ni emi de
 [harrdy@localhost myNodejs]$
 ```
+* fs.writeFile 并不一定是覆盖原来文件内容，而是取决于打开文件时带的 flags。
+* 如果是通过 writeFile 直接打开文件默认是 w 模式，但是也可以通过 open 打开文件指定模式，然后通过 writeFile 来写文件
+* 下面writeFile 是追加模式写文件
+```js
+let fs=require('fs');
+console.log("start open ...");
+fs.open('./data.txt','a+',(err,fd)=>{
+    if(err) return err;
+    console.log("open success !!!");
+    console.log("start write ...");
+    fs.writeFile(fd,'i am a boy hahhah .',err=>{
+        if(err) return err;
+        console.log("write success !!!!");
+    });
+});
+console.log('end !!!');
+```
