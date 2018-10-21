@@ -57,7 +57,7 @@ function Person(){
 let obj=new Person();
 console.log(util.inspect(obj));
 console.log(util.inspect(obj,true));
-console.log(util.inspect(obj,true,true));
+console.log(util.inspect(obj,true,null,true));
 ```
 
 ***
