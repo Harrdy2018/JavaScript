@@ -119,12 +119,50 @@ base: 如果“input”是相对url，则为要解析的基本url
 const { URL } = require('url');
 const myURL = new URL('/foo', 'https://example.org/');
   // https://example.org/foo
-复制代码如果input或base是无效URLs，将会抛出TypeError。请注意给定值将被强制转换为字符串。例如：
+如果input或base是无效URLs，将会抛出TypeError。请注意给定值将被强制转换为字符串。例如：
 const { URL } = require('url');
 const myURL = new URL({ toString: () => 'https://example.org/' });
   // https://example.org/
-复制代码存在于input主机名中的Unicode字符将被使用Punycode算法自动转换为ASCII。
+存在于input主机名中的Unicode字符将被使用Punycode算法自动转换为ASCII。
 const { URL } = require('url');
 const myURL = new URL('https://你好你好');
   // https://xn--6qqa088eba/
+```
+
+***
+### 5、 URLSearchParams
+* URLSearchParamsAPI接口提供对URLquery部分的读写权限。URLSearchParams类也能够与以下四个构造函数中的任意一个单独使用。
+```js
+const { URL, URLSearchParams } = require('url');
+
+const myURL = new URL('https://example.org/?abc=123');
+console.log(myURL.searchParams.get('abc'));
+// 输出 123
+
+myURL.searchParams.append('abc', 'xyz');
+console.log(myURL.href);
+// 输出 https://example.org/?abc=123&abc=xyz
+
+myURL.searchParams.delete('abc');
+myURL.searchParams.set('a', 'b');
+console.log(myURL.href);
+// 输出 https://example.org/?a=b
+
+const newSearchParams = new URLSearchParams(myURL.searchParams);
+// 上面的代码等同于
+// const newSearchParams = new URLSearchParams(myURL.search);
+
+newSearchParams.append('a', 'c');
+console.log(myURL.href);
+// 输出 https://example.org/?a=b
+console.log(newSearchParams.toString());
+// 输出 a=b&a=c
+
+// newSearchParams.toString() 被隐式调用
+myURL.search = newSearchParams;
+console.log(myURL.href);
+// 输出 https://example.org/?a=b&a=c
+newSearchParams.delete('a');
+console.log(myURL.href);
+// 输出 https://example.org/?a=b&a=c
 ```
