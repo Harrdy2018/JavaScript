@@ -163,4 +163,11 @@ console.log(fs);
      COPYFILE_FICLONE: 2,
      UV_FS_COPYFILE_FICLONE_FORCE: 4,
      COPYFILE_FICLONE_FORCE: 4 } }
+     
+//另外一种调用模块的写法
+// CommonJS模块  用于服务器端
+let { stat, exists, readFile } = require('fs');
+console.log(readFile);  //[Function: readFile]
+console.log(toString.call(readFile));  //[object Function]
+//也就是需要什么函数就加载什么函数，而不是全部加载
 ```
