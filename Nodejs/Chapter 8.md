@@ -102,3 +102,22 @@ console.log('当前版本: ' + process.version);
 // 输出内存使用情况
 console.log(process.memoryUsage());
 ```
+
+***
+### 在nodejs中全局变量污染的问题
+* ***隐式定义的变量将污染全局变量 let 和 var 都不会 这与前端的js不同***
+```
+//console.log(global);
+var aaaaaaa=123445;
+console.log(global.aaaaaaa);
+let bbb=123445;
+console.log(global.bbb);
+cc=123;             //隐式定义的变量（未定义直接赋值的变量）  将污染全局变量
+console.log(global.cc);
+
+[harrdy@localhost myNodejs]$ node ./test.js
+undefined
+undefined
+123
+[harrdy@localhost myNodejs]$
+```
