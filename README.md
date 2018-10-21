@@ -49,6 +49,7 @@
 * [express框架](./Nodejs/Chapter%205.md)
 * [fs模块](./Nodejs/Chapter%206.md)
 * [path模块](./Nodejs/Chapter%207.md)
+* [全局对象](./Nodejs/Chapter%208.md)
 ## 前端环境搭建： webpack4+node+vue+react
 * [基本问题](./Build%20Environment/Basic%20Problems.md)
 * [vue学习笔记](./Build%20Environment/vue%20note/vue-note.md)
