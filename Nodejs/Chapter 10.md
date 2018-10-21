@@ -166,3 +166,30 @@ newSearchParams.delete('a');
 console.log(myURL.href);
 // 输出 https://example.org/?a=b&a=c
 ```
+
+***
+### 6、 domainToASCII(domain)
+* 返回Punycode ASCII序列化的domain. 如果domain是无效域名，将返回空字符串。 它执行的是url.domainToUnicode()的逆运算。
+```js
+const url = require('url');
+console.log(url.domainToASCII('español.com'));
+  // 输出 xn--espaol-zwa.com
+console.log(url.domainToASCII('中文.com'));
+  // 输出 xn--fiq228c.com
+console.log(url.domainToASCII('xn--iñvalid.com'));
+  // 输出空字符串
+```
+
+***
+### 7、 domainToUnicode(domain)
+* 返回Unicode序列化的domain. 如果domain是无效域名，将返回空字符串。
+* 它执行的是url.domainToASCII()的逆运算。
+```js
+const url = require('url');
+console.log(url.domainToUnicode('xn--espaol-zwa.com'));
+  // 输出 español.com
+console.log(url.domainToUnicode('xn--fiq228c.com'));
+  // 输出 中文.com
+console.log(url.domainToUnicode('xn--iñvalid.com'));
+  // 输出空字符串
+```
