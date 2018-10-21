@@ -105,7 +105,7 @@ console.log(process.memoryUsage());
 
 ***
 ### 在nodejs中全局变量污染的问题
-* ***隐式定义的变量将污染全局变量 let 和 var 都不会 这与前端的js不同***
+* ***隐式定义的变量将污染全局变量 ;let 和 var 都不会 这与前端的js不同***
 ```
 //console.log(global);
 var aaaaaaa=123445;
