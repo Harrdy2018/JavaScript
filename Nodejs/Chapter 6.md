@@ -286,6 +286,26 @@ data - 要写入文件的数据，可以是 String(字符串) 或 Buffer(缓冲)
 options - 该参数是一个对象，包含 {encoding, mode, flag}。默认编码为 utf8, 模式为 0666 ， flag 为 'w'
 callback - 回调函数，回调函数只包含错误信息参数(err)，在写入失败时返回。
 ```
-* example
+* 写入文件并读取文件 如果在写入的时候文件不存在，则默认创建文件  默认会覆盖源文件
 ```js
+let fs=require('fs');
+console.log("start write ...");
+fs.writeFile('./dataA.txt','hahhahah ni emi de ',err=>{
+    if(err) return err;
+    console.log("write success !!!");
+    console.log("start read file ...");
+    fs.readFile('./dataA.txt',(err,data)=>{
+        if(err) return err;
+        console.log(data.toString());
+    });
+});
+console.log('end !!!');
+
+[harrdy@localhost myNodejs]$ node ./test.js
+start write ...
+end !!!
+write success !!!
+start read file ...
+hahhahah ni emi de
+[harrdy@localhost myNodejs]$
 ```
