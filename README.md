@@ -51,6 +51,7 @@
 * [path模块](./Nodejs/Chapter%207.md)
 * [全局对象](./Nodejs/Chapter%208.md)
 * [util模块](./Nodejs/Chapter%209.md)
+* [url模块](./Nodejs/Chapter%2010.md)
 ## 前端环境搭建： webpack4+node+vue+react
 * [基本问题](./Build%20Environment/Basic%20Problems.md)
 * [vue学习笔记](./Build%20Environment/vue%20note/vue-note.md)
