@@ -211,3 +211,36 @@ you know?
 end !!
 [harrdy@localhost myNodejs]$
 ```
+
+***
+### 打开文件   语法 fs.open(path, flags[, mode], callback)
+* flags - 文件打开的行为
+```
+r	以读取模式打开文件。如果文件不存在抛出异常。
+r+	以读写模式打开文件。如果文件不存在抛出异常。
+w	以写入模式打开文件，如果文件不存在则创建。
+w+	以读写模式打开文件，如果文件不存在则创建。
+a	以追加模式打开文件，如果文件不存在则创建。
+a+	以读取追加模式打开文件，如果文件不存在则创建。
+```
+* mode - 设置文件模式(权限)，文件创建默认权限为 0666(可读，可写)。
+* 异步方式打开文件
+```js
+let fs=require('fs');
+console.log("start ...");
+fs.open('./data.txt','r+',function(err,fd){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log('success !!!');
+    }
+});
+console.log("end !!!");
+
+[harrdy@localhost myNodejs]$ node ./test.js
+start ...
+end !!!
+success !!!
+[harrdy@localhost myNodejs]$
+```
