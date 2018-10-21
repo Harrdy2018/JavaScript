@@ -18,7 +18,7 @@
 ```
 
 ***
-### parse(urlStr,queryString,AnalysisHost)  Node.js遗留的特有的API
+### 1 parse(urlStr,queryString,AnalysisHost)  Node.js遗留的特有的API
 ```
 参数：
 urlStr: 要解析的url地址
@@ -48,4 +48,55 @@ console.log(myURLA);
 //         path: '/p/a/t/h?query=string', // 带查询的路径名
 //         href: 'https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash' // 原字符串本身
 }
+```
+```
+错误：
+如果urlStr不是字符串将会抛出TypeError。
+const myurl = url.parse({a:123});
+TypeError: Parameter "url" must be a string, not object
+
+如果auth属性存在但无法编码则抛出URIError。
+```
+
+***
+### 2 resolve(from, to)
+```js
+参数：
+from: 解析时对应的基本的url
+to:要解析的超链接url
+
+作用：以一种 Web 浏览器解析超链接的方式把一个目标 URL 解析成相对于一个基础 URL。
+例如：
+const url = require('url');
+url.resolve('/one/two/three', 'four');         // '/one/two/four'
+url.resolve('http://example.com/', '/one');    // 'http://example.com/one'
+url.resolve('http://example.com/one', '/two'); // 'http://example.com/two'
+```
+
+***
+### 3 format(url,options)
+```
+参数：
+url: 一个WHATWG URL对象
+options:
+1. auth: 如果序列化的URL字符串应该包含用户名和密码为true，否则为false。默认为true。
+2. fragment: 如果序列化的URL字符串应该包含分段为true，否则为false。默认为true。即是不是需要包含哈希值
+3. search: 如果序列化的URL字符串应该包含搜索查询为true，否则为false。默认为true。
+4. unicode: true 如果出现在URL字符串主机元素里的Unicode字符应该被直接编码而不是使用Punycode编码为true，默认为false。
+返回一个WHATWG URL对象的可自定义序列化的URL字符串表达。
+
+虽然URL对象的toString()方法和href属性都可以返回URL的序列化的字符串。然而，两者都不可以被自定义。
+而url.format(URL[, options])方法允许输出的基本自定义。
+例如：
+const { URL } = require('url');
+const myURL = new URL('https://a:b@你好你好?abc#foo');
+
+console.log(myURL.href);
+  // 输出 https://a:b@xn--6qqa088eba/?abc#foo
+
+console.log(myURL.toString());
+  // 输出 https://a:b@xn--6qqa088eba/?abc#foo
+
+console.log(url.format(myURL, { fragment: false, unicode: true, auth: false }));
+  // 输出 'https://你好你好/?abc'
 ```
