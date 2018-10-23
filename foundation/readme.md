@@ -6,5 +6,6 @@
 ### css
 * [css选择器](./codeFiles/css选择器.md)
 * [css选择器优先级](./codeFiles/css选择器优先级.md)
+* [纯css创建一个三角形](./codeFiles/创建三角形.md)
 ### html
 * [meta标签](./codeFiles/meta标签.md)
