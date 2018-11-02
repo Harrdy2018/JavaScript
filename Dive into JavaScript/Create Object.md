@@ -53,8 +53,8 @@ function Person(name)
         console.log("Hello,I'am a student.");
     };
 }
-var person1=Person("Harrdy");
-var person2=Person("harrdy");
+var person1=new Person("Harrdy");
+var person2=new Person("harrdy");
 ```
 * 优点
 ```
