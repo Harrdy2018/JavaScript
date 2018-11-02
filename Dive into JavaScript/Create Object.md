@@ -73,7 +73,8 @@ console.log(person1 instanceof Object);//true  Person.prototype在对象person2�
 ***
 ## 原型模式
 ```
-我们创建的每个函数都有一个 prototype（原型）属性，这个属性是一个指针，指向一个对象，而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
+我们创建的每个函数都有一个 prototype（原型）属性，这个属性是一个指针，指向一个对象，
+而这个对象的用途是包含可以由特定类型的所有实例共享的属性和方法。
 如果按字面意思来理解，那么prototype就是通过调用构造函数而创建的那个对象实例的原型对象。
 使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。换句话说，不必在构造函数中定义对象实例的信息，
 而是可以将这些信息直接添加到原型对象中。
@@ -111,6 +112,29 @@ var person1=new Person();
 var person2=new Person();
 console.log(person1.constructor);//构造函数Object
 console.log(Person.prototype.constructor);//构造函数Object
+```
+
+***
+## 组合使用构造函数模式和原型模式
+```
+这是使用最为广泛、认同度最高的一种创建自定义类型的方法。它可以解决上面那些模式的缺点
+使用此模式可以让每个实例都会有自己的一份实例属性副本，但同时又共享着对方法的引用
+这样的话，即使实例属性修改引用类型的值，也不会影响其他实例的属性值了
+```
+```js
+//下面创建对象的职业全为学生
+function Person(name)
+{
+    this.name=name;
+    this.friends=['A','B'];
+}
+Person.prototype.job="student"
+var person1=new Person("Harrdy");
+var person2=new Person("harrdy");
+person1.friends.push('C');
+console.log(person1.friends); //["A", "B", "C"]
+console.log(person2.friends); //["A", "B"]
+console.log(person1.friends === person2.friends); //false
 ```
 * 优点
 ```
@@ -200,28 +224,6 @@ Object.defineProperty(Person.prototype, 'constructor',
 var person1=new Person("Harrdy");
 console.log(person1.constructor);//构造函数Person
 console.log(Person.prototype.constructor);//构造函数Person
-```
-***
-## 组合使用构造函数模式和原型模式
-```
-这是使用最为广泛、认同度最高的一种创建自定义类型的方法。它可以解决上面那些模式的缺点
-使用此模式可以让每个实例都会有自己的一份实例属性副本，但同时又共享着对方法的引用
-这样的话，即使实例属性修改引用类型的值，也不会影响其他实例的属性值了
-```
-```js
-//下面创建对象的职业全为学生
-function Person(name)
-{
-    this.name=name;
-    this.friends=['A','B'];
-}
-Person.prototype.job="student"
-var person1=new Person("Harrdy");
-var person2=new Person("harrdy");
-person1.friends.push('C');
-console.log(person1.friends); //["A", "B", "C"]
-console.log(person2.friends); //["A", "B"]
-console.log(person1.friends === person2.friends); //false
 ```
 ***
 ## 动态原型模式
