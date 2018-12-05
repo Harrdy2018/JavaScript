@@ -63,3 +63,7 @@
 几乎所有的标签都支持 textContent innerHTML innerText 属性 
     textContent和innerText产生的效果是一样的，innerHTML可以打印出里面的标签结构
 ```
+***
+#### 数组去重
+```html
+```
