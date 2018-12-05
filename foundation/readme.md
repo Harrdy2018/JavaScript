@@ -52,3 +52,14 @@
     </script>
 </html>
 ```
+```
+做这道题目有几点需要注意的：
+1，任何标签都可以添加点击事件
+2,for循环里面不能使用var声明，要用let申明
+3，要获取标签里面的内容，只有少数标签支持text属性
+支持text属性的标签：>>>>>>>>>>
+                    var script=document.querySelector('script');
+                    var title=document.querySelector('title');
+几乎所有的标签都支持 textContent innerHTML innerText 属性 
+    textContent和innerText产生的效果是一样的，innerHTML可以打印出里面的标签结构
+```
