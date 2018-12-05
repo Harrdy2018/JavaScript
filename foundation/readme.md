@@ -95,3 +95,23 @@
     </script>
 </html>
 ```
+```html
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>test for jobs</title>
+    </head>
+    <body>
+      
+    </body>
+    <script>
+        console.log("Hello World !!!");
+        var aa=[1,2,2,3,3,4,5,5,7,7,7];
+        var newaa=aa.filter(function(value,index,arr){
+            return arr.indexOf(value,0)===index;
+        });
+        console.log(newaa);
+    </script>
+</html>
+```
