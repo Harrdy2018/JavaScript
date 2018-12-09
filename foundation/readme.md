@@ -115,3 +115,52 @@
     </script>
 </html>
 ```
+
+***
+#### 跨域问题
+* 跨域实现百度搜索栏
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度搜索栏</title>
+</head>
+<body>
+<p>百度</p>
+<input type="text">
+<ul></ul>
+</body>
+<script src="./jquery-3.3.1.js"></script>
+<script>
+    function createLi(item) {
+        var oUl=document.querySelector('ul');
+        var oLi=document.createElement('li');
+        var oText=document.createTextNode(item);
+        oLi.appendChild(oText);
+        oUl.appendChild(oLi);
+    }
+    function getData(data) {
+        var obj=document.querySelector('#jsonp');
+        obj.parentNode.removeChild(obj);
+        document.querySelector('ul').innerHTML='';
+        data.s.forEach((item,index,arr)=>{
+            createLi(item);
+        })
+    }
+    function getList(wd){
+        var obj=document.createElement("script");
+        obj.id="jsonp";
+        obj.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=getData&wd="+wd;
+        document.body.appendChild(obj);
+    }
+
+    var oInput=document.querySelector('input');
+    oInput.addEventListener('keyup',function () {
+        var wd=oInput.value;
+        console.log(wd);
+        getList(wd);
+    });
+</script>
+</html>
+```
