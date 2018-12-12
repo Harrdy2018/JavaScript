@@ -12,6 +12,9 @@
     var a=1;
     var add=function () {};
     function ad() {};
+    
+    console.log(window.a);  //1
+    console.log('a' in window); //true
 </script>
 ```
 ***
