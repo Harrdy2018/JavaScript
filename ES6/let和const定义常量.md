@@ -32,6 +32,30 @@
 </script>
 ```
 ***
+### const特点
+```html
+<script>
+    //没有变量申明
+    //不可以重复申明
+    //console.log(a);  //Uncaught ReferenceError: a is not defined
+    const a=1;
+    //const a=1; //Uncaught SyntaxError: Identifier 'a' has already been declared
+
+    //不会给window增加属性
+    console.log(window.a); //undefined
+    console.log('a' in window); //false
+
+    //const一旦申明，必须赋值
+    //const b; //Uncaught SyntaxError: Missing initializer in const declaration
+
+    //const定义的是一个常量 不可以重新赋值
+    /*
+    const dd=1;  //Uncaught TypeError: Assignment to constant variable.
+    dd=3;
+    */
+</script>
+```
+***
 ### 块级作用域
 ```html
 <!DOCTYPE html>
