@@ -5,6 +5,7 @@
 <script>
     //var function存在变量提升
     //var 只会提前申明 function既申明又定义
+    //在全局作用域下 var function申明的变量会给window增加属性
     console.log(a);    //undefined
     console.log(add);  //unfined
     console.log(ad);   //有值
