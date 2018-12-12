@@ -18,6 +18,20 @@
 </script>
 ```
 ***
+### let特点
+```html
+<script>
+    //没有变量申明
+    //不可以重复申明
+    //console.log(a);  //Uncaught ReferenceError: a is not defined
+    let a=1;
+    //let a=1; //Uncaught SyntaxError: Identifier 'a' has already been declared
+    //不会给window增加属性
+    console.log(window.a); //undefined
+    console.log('a' in window); //false
+</script>
+```
+***
 ### 块级作用域
 ```html
 <!DOCTYPE html>
