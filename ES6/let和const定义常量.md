@@ -1,5 +1,19 @@
 # let和const定义常量
-
+***
+### var和function
+```html
+<script>
+    //var function存在变量提升
+    //var 只会提前申明 function既申明又定义
+    console.log(a);    //undefined
+    console.log(add);  //unfined
+    console.log(ad);   //有值
+    var a=1;
+    var add=function () {};
+    function ad() {};
+</script>
+```
+***
 ### 块级作用域
 ```html
 <!DOCTYPE html>
