@@ -138,6 +138,43 @@ __proto__: ƒ ()
 </script>
 ```
 ***
+### race方法 竞争
+```html
+<script>
+    //Promise.race([每一项都是Promise,如果不是默认转为Promise])
+    //只要有一个状态改变 当前实例的状态就跟着变
+    let p1=new Promise((resolve,reject)=>{
+        resolve("harrdy");
+    });
+    let p2=new Promise((resolve,reject)=>{
+        resolve("p2p2p2p2");
+    });
+    let p3=new Promise((resolve,reject)=>{
+        resolve("lukang");
+    });
+    Promise.race([p1,p2,p3]).then(result=>console.log(result)).catch(err=>console.log(err));
+</script>
+```
+***
+```html
+<script>
+    //Promise.race([每一项都是Promise,如果不是默认转为Promise])
+    //只要有一个状态改变 当前实例的状态就跟着变
+    let p1=new Promise((resolve,reject)=>{
+        setTimeout(function () {
+            resolve("harrdy");
+        },1000);
+    });
+    let p2=new Promise((resolve,reject)=>{
+        resolve("p2p2p2p2");
+    });
+    let p3=new Promise((resolve,reject)=>{
+        resolve("lukang");
+    });
+    Promise.race([p1,p2,p3]).then(result=>console.log(result)).catch(err=>console.log(err));
+</script>
+```
+***
 ### 我对Promise的理解
 ```html
 //同目录下面的数据文件
