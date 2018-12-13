@@ -1,5 +1,56 @@
 # Promise
 ***
+### Promise 基础
+```html
+<script src="./jquery-3.3.1.js"></script>
+<script>
+    //执行顺序
+    //new Promise 中的函数==>当前队列中的同步代码==>then中的回调
+   let pro1=new Promise((resolve,reject)=>{
+       //resolve 函数
+       //reject 函数
+       //只能执行上面的一个函数
+       console.log("first");
+       resolve("success");//成功
+       reject("error");//失败
+   });
+   //回调 异步的
+   pro1.then(res=>{
+        //resolve 成功的回调
+       console.log(res);
+   },e=>{
+       //reject 失败的回调
+       console.log(e);
+   });
+   console.log("second");
+</script>
+
+<script src="./jquery-3.3.1.js"></script>
+<script>
+    //如果里面有错误 注意执行顺序
+   let pro1=new Promise((resolve,reject)=>{
+       //resolve 函数
+       //reject 函数
+       //只能执行上面的一个函数
+       let a=1;
+       let a=1;
+       console.log("first");
+       resolve("success");//成功
+       reject("error");//失败
+   });
+   //回调 异步的
+   pro1.then(res=>{
+        //resolve 成功的回调
+       console.log(res);
+   },e=>{
+       //reject 失败的回调
+       console.log("have error");
+       console.log(e);
+   });
+   console.log("second");
+</script>
+```
+***
 ### 我对Promise的理解
 ```html
 //同目录下面的数据文件
