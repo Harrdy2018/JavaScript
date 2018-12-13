@@ -52,7 +52,7 @@
 ```
 ***
 ### 异步加载图片
-``html
+```html
 <body>
 <div id="box"></div>
 </body>
