@@ -51,6 +51,26 @@
 </script>
 ```
 ***
+### 异步加载图片
+``html
+<body>
+<div id="box"></div>
+</body>
+<script src="./jquery-3.3.1.js"></script>
+<script>
+    function loadImg(url) {
+        return new Promise((resolve,reject)=>{
+            let img=new Image();
+            img.src=url;
+            img.onload=()=>resolve(img);
+            img.onerror=e=>reject(e);
+        });
+    };
+    loadImg("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1544695997400&di=968f8e62995c69117ad29760a16ab84f&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fa023d8ef11d0ac10d9224972af0710e670a3826e" +
+        ".jpg").then(img=>box.appendChild(img),e=>console.log(e));
+</script>
+```
+***
 ### 我对Promise的理解
 ```html
 //同目录下面的数据文件
