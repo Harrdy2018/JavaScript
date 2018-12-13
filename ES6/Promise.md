@@ -91,6 +91,35 @@
 </script>
 ```
 ***
+### all方法
+```html
+<script>
+    //打印详细信息
+    console.dir(Promise);
+</script>
+
+ƒ Promise()
+all: ƒ all()
+arguments: (...)
+caller: (...)
+length: 1
+name: "Promise"
+prototype: Promise
+catch: ƒ catch()
+constructor: ƒ Promise()
+finally: ƒ finally()
+then: ƒ then()
+Symbol(Symbol.toStringTag): "Promise"
+__proto__: Object
+race: ƒ race()
+reject: ƒ reject()
+resolve: ƒ resolve()
+Symbol(Symbol.species): (...)
+get Symbol(Symbol.species): ƒ [Symbol.species]()
+__proto__: ƒ ()
+[[Scopes]]: Scopes[0]
+```
+***
 ### 我对Promise的理解
 ```html
 //同目录下面的数据文件
