@@ -120,6 +120,24 @@ __proto__: ƒ ()
 [[Scopes]]: Scopes[0]
 ```
 ***
+```html
+<script>
+    //Promise.all([每一项都是Promise,如果不是默认转为Promise])
+    //数组中的每一项都是成功 才会走成功回调
+    //只要一个有错误，就会走错误的回调
+    let p1=new Promise((resolve,reject)=>{
+        resolve("harrdy");
+    });
+    let p2=new Promise((resolve,reject)=>{
+        reject("p2 error");
+    });
+    let p3=new Promise((resolve,reject)=>{
+        resolve("lukang");
+    });
+    Promise.all([p1,p2,p3]).then(result=>console.log(result)).catch(err=>console.log(err));
+</script>
+```
+***
 ### 我对Promise的理解
 ```html
 //同目录下面的数据文件
