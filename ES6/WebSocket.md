@@ -1,5 +1,50 @@
 # WebSocket
 ***
+```node
+var http=require("http");
+var fs=require("fs");
+var server=http.createServer((req,res)=>{
+    console.log(new Date()+" Received request for "+req.url);
+    res.writeHead(404);
+    res.end();
+});
+server.listen(1234,()=>{
+    console.log((new Date())+" Server is listening on port 1234");
+});
+var WebSocketServer=require("websocket").server;
+wsServer=new WebSocketServer({
+    httpServer: server,
+    autoAcceptConnections: false
+});
+
+function originIsAllowed(origin){
+    return true;
+}
+
+wsServer.on("request",function(req){
+    if(!originIsAllowed(req.origin)){
+        req.reject();
+        console.log(new Date()+" Connection from origin "+req.origin+" rejected.");
+        return ;
+    }
+    var connection=req.accept("echo-protocol",req.origin);
+    console.log(new Date()+" Connection accepted.");
+    connection.on("message",function(message){
+        if(message.type==="utf8"){
+            console.log("Received Message: "+message.utf8Data);
+            connection.sendUTF(message.utf8Data);
+        }
+        else if (message.type === 'binary') {
+            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
+            connection.sendBytes(message.binaryData);
+        }
+    });
+    connection.on('close', function(reasonCode, description) {
+        console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
+    });
+});
+```
+***
 ```html
 <!doctype html>
 <html>
