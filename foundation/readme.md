@@ -51,6 +51,54 @@
         }
     </script>
 </html>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>test html</title>
+</head>
+<body>
+  <ul id="test">
+    <li>AA</li>
+    <li>BB</li>
+    <li>CC</li>
+    <li>DD</li>
+  </ul>
+</body>
+<script>
+  /*
+  var oLi=document.getElementById('test')
+  var arr=oLi.getElementsByTagName('li')
+  for(var i=0;i<arr.length;i++){
+    arr[i].onclick=function(){
+      console.log(this.textContent)
+    }
+  }
+  */
+  
+  // for循环每循环一次，创建一个块级作用域
+  var oLi=document.getElementById('test')
+  var arr=oLi.getElementsByTagName('li')
+  for(let i=0;i<arr.length;i++){
+    arr[i].onclick=function(){
+      console.log(arr[i].textContent)
+    }
+  }
+  
+  //for循环每循环一次，创建一个局部作用域，分别存储不同的变量i
+  /*
+  var oLi=document.getElementById('test')
+  var arr=oLi.getElementsByTagName('li')
+  for(var i=0;i<arr.length;i++){
+    (function(i){
+      arr[i].onclick=function(){
+      console.log(this.textContent)
+    }
+    })(i)  
+  }
+  */
+</script>
+</html>
 ```
 ```
 做这道题目有几点需要注意的：
