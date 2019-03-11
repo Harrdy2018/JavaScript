@@ -217,7 +217,7 @@
     }
   </style>
 ```
-### 屏幕只有一个div,固定宽度，不管里面的内容
+### div水平居中
 ```html
  <style>
     div{
@@ -242,7 +242,7 @@
     }
   </style>
 ```
-### div垂直居中布局
+### div水平垂直居中布局
 ```html
   <style>
     html{
@@ -262,7 +262,7 @@
     }
   </style>
 ```
-### div垂直居中布局
+### div水平垂直居中布局
 ```
 fixed/absolute
 负margin
@@ -288,7 +288,7 @@ fixed/absolute
     }
   </style>
 ```
-### div垂直居中布局
+### div水平垂直居中布局
 ```
 fixed/absolute
 transform
@@ -313,7 +313,7 @@ transform
     }
   </style>
 ```
-### div垂直居中布局
+### div水平垂直居中布局
 ```
 fixed/absolute 
 top&bottom&left&right 0px 
