@@ -382,6 +382,37 @@ div的宽度一定要固定 不然div会充满整个屏幕
   </style>
 ```
 ## 说一说你在工作中遇到的问题以及你是怎么解决的
+```
+背景描述：
+每一次点击登录按钮时，我在mutation提交对state的管理
+将 {admin:管理员信息} {‘islogin’:'true'}存到sessionStroage
+同时同步信息到state
+```
+* 怎么鉴权
+```
+我原来的想法是，由于登录进系统以后，我每次看到的页面都要经过一个父组件渲染，home.vue
+所以我在mounted里面加一个判断如果sessionStroage有login true则不拦截，否则跳回到登录界面
+
+网上是这样说的，你这个就是要判断进来这个页面要不要登录，你可以先在/home配置路劲下加一个
+meta:{requiresAuth: true}
+然后在main.js文件加一个全局前置路由钩子beforeEach(to,from,next)
+你每一切换路由的时候，就检查to.matched里面有没有一个路由的meta.requiresAuth为true,只要有一个为true,
+就证明这是一个需要登录之后才能看到的界面，然后只需检查一下登录状态就可以了，接着根据不同的情况执行next()函数
+```
+* 怎么维持登录状态
+登录进来之后，每一次刷新界面，store里面的state会重置为null,无法从store里面获取值
+想到了如果你现在是处于登陆状态，则sessionStorage一定是有值得，所以state初始化的时候从sessionstroage里取值
+const state={
+  isLogin: eval(window.sessionStorage.getItem('isLogin')) || false,  进行或判断即可
+  administrator: JSON.parse(window.sessionStorage.getItem('admin')) || {}
+}
+* 对表格数据进行新增、删除、上移、下移操作
+首先要知道渲染表格其实就是一个数组，其次点击事件是可以传入表格所在行信息的参数
+删除：删除对应数组所在行的数据
+新增： 在对应行所在的数组加一个元素
+上移下移：那我交换一下元素是不是就可以呢，答案是不可以的，我又想了一下，既然你能新增，删除为什么就是不能上移下移呢？
+然后我换了一个思路，假设你现在要上移你这一行的数据，首先我把这一行的数据拷贝一下，然后从数组中删除对应的元素，然后
+再在前面插入我之前拷贝的元素，发现可以上移了
 ## 你还有什么想要问我的么
 * 入职后有没有培训活动
 * 公司对我的期望是什么
