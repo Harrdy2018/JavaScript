@@ -210,5 +210,20 @@
 ## 居中
 ### p标签内的文字居中
 ```html
-text-align: center;
+ <style>
+    p{
+     text-align: center;
+    }
+  </style>
+```
+### 屏幕只有一个div,固定宽度，不管里面的内容
+```html
+ <style>
+    div{
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+      background-color: brown;
+    }
+  </style>
 ```
