@@ -262,6 +262,28 @@
     }
   </style>
 ```
+### 屏幕只有一个div,固定宽度，不管里面的内容 将div放在屏幕的正中央 fixed+负margin
+```html
+  <style>
+    html{
+      height: 100%;
+    }
+    body{
+      margin: 0px;
+      height: 100%;
+    }
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: brown; 
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-left: -100px;
+      margin-top: -100px;
+    }
+  </style>
+```
 ## 解释固定定位
 ```
 固定定位是相对于浏览器窗口而言的，当滚动右边滚动条时，div位置不变，就好像静止一样
