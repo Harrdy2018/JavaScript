@@ -242,7 +242,7 @@
     }
   </style>
 ```
-### 屏幕只有一个div,固定宽度，不管里面的内容 将div放在屏幕的正中央
+### div垂直居中布局
 ```html
   <style>
     html{
@@ -262,7 +262,11 @@
     }
   </style>
 ```
-### 屏幕只有一个div,固定宽度，不管里面的内容 将div放在屏幕的正中央 fixed+负margin
+### div垂直居中布局
+```
+fixed/absolute
+负margin
+```
 ```html
   <style>
     html{
@@ -284,7 +288,11 @@
     }
   </style>
 ```
-### 屏幕只有一个div,固定宽度，不管里面的内容 将div放在屏幕的正中央 fixed+transform
+### div垂直居中布局
+```
+fixed/absolute
+transform
+```
 ```html
   <style>
     html{
@@ -302,6 +310,35 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
+    }
+  </style>
+```
+### div垂直居中布局
+```
+fixed/absolute 
+top&bottom&left&right 0px 
+margin auto
+div的宽度一定要固定 不然div会充满整个屏幕
+```
+```html
+  <style>
+    html{
+      height: 100%;
+    }
+    body{
+      margin: 0px;
+      height: 100%;
+    }
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: brown; 
+      position: absolute;
+      margin: auto;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
     }
   </style>
 ```
