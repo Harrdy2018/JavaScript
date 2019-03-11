@@ -5,6 +5,7 @@
 * [css选择器优先级](./codeFiles/css选择器优先级.md)
 * [纯css创建一个三角形](./codeFiles/创建三角形.md)
 * [居中](#居中)
+* [解释固定定位](#解释固定定位)
 * [meta标签](./codeFiles/meta标签.md)
 * [南京苏宁前端总部面试](./南京苏宁前端总部面试.md)
 
@@ -255,6 +256,45 @@
       height: 100%;
     }
     div{
+      width: 200px;
+      height: 200px;
+      background-color: brown; 
+    }
+  </style>
+```
+## 解释固定定位
+```
+固定定位是相对于浏览器窗口而言的，当滚动右边滚动条时，div位置不变，就好像静止一样
+怎么出现滚动条？ 将html设置为100% body设置为200%
+当没有固定定位时，你会发现，移动滚动条时，div跑到上面去了。
+```
+```html
+ <style>
+    html{
+      height: 100%;
+    }
+    body{
+      margin: 0px;
+      height: 200%;
+    }
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: brown; 
+    }
+  </style>
+```
+```html
+  <style>
+    html{
+      height: 100%;
+    }
+    body{
+      margin: 0px;
+      height: 200%;
+    }
+    div{
+      position: fixed;
       width: 200px;
       height: 200px;
       background-color: brown; 
