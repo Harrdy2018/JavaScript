@@ -227,3 +227,37 @@
     }
   </style>
 ```
+```html
+ <style>
+    body{
+      margin: 0px;
+      display: flex;
+      justify-content: center;
+    }
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: brown; 
+    }
+  </style>
+```
+### 屏幕只有一个div,固定宽度，不管里面的内容 将div放在屏幕的正中央
+```html
+  <style>
+    html{
+      height: 100%;
+    }
+    body{
+      margin: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: brown; 
+    }
+  </style>
+```
