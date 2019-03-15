@@ -84,7 +84,8 @@ function parent(){
 }
 parent();
 parent函数的执行是瞬间的（也许用时只是0.00001毫秒），在parent的函数体内创建了一个变量n，
-在parent执行完毕之后n并没有被释放，这是因为setTimeout内的匿名函数存在这对n的引用。待到2秒后函数体内的匿名函数被执行完毕,n才被释放。
+在parent执行完毕之后n并没有被释放，这是因为setTimeout内的匿名函数存在这对n的引用。
+待到2秒后函数体内的匿名函数被执行完毕,n才被释放。
 
 闭包用处：一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
 // 执行p函数的时候，parent形成闭包
@@ -104,6 +105,27 @@ add();
 p(); //2
 parent函数形成闭包。child函数一共运行了两次，第一次的值是1，第二次的值是2。
 这证明了，函数parent中的局部变量n一直保存在内存中，并没有在parent调用后被自动清除。
+```
+* 闭包-封装
+```javascript
+(function(){
+  var name="lk";
+  var age=18;
+  var test={}
+  test.getName=function(){
+    console.log(name)
+  }
+  test.getAge=function(){
+    console.log(age)
+  }
+  window.test=test
+})()
+test.getName();
+test.getAge();
+console.log(test.name);
+console.log(test.age);
+利用闭包的特性能让我们封装一些复杂的函数逻辑，在这个例子中调用test上的方法（getName,getAge）间接访问函数里私有变量，
+但是直接调用test.name是没法拿到name的。
 ```
 ### 唯一识别标签
 ```javascript
