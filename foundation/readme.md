@@ -13,10 +13,63 @@
 * [meta标签](./codeFiles/meta标签.md)
 * [说一说你在工作中遇到的问题以及你是怎么解决的](#说一说你在工作中遇到的问题以及你是怎么解决的)
 * [你还有什么想要问我的么](#你还有什么想要问我的么)
-
-***
 ### 面向对象实现
 * 面向对象特点：继承、多态、封装
+```javascript
+  //机器类
+  function Machine(name){}
+  // 只要是这个构造器创建的实例，都共享prototype这块内存
+  Machine.prototype={
+    start: function(){},
+    stop: function(){}
+  }
+  function Car(name,brand){}
+  Car.prototype=new Machine();
+  Car.prototype.open=function(){}
+  Car.prototype.close=function(){}
+  var c1=new Car();
+  console.log(c1)
+  console.log(c1 instanceof Car) // true
+  console.log(c1 instanceof Machine) // true
+  console.log(c1 instanceof Object) // true
+  console.log(c1.constructor) //Object
+  console.log(c1.__proto__.constructor) // Object
+  
+  //如何改变实例c1上constructor的指向
+  //机器类
+  function Machine(name){}
+  // 只要是这个构造器创建的实例，都共享prototype这块内存
+  Machine.prototype={
+    start: function(){},
+    stop: function(){}
+  }
+  function Car(name,brand){}
+  Car.prototype=new Machine();
+  Car.prototype.constructor=Car
+  Car.prototype.open=function(){}
+  Car.prototype.close=function(){}
+  var c1=new Car();
+  console.log(c1)
+  console.log(c1 instanceof Car) // true
+  console.log(c1 instanceof Machine) // true
+  console.log(c1 instanceof Object) // true
+  console.log(c1.constructor) //Car
+  console.log(c1.__proto__.constructor) // Car
+```
+### 面向对象中函数的作用
+```javascript
+  function myfun() {
+    // 功能函数
+    // 功能函数调用的目的是拿到结果
+    // 把一大块逻辑单独的封装起来
+    // 以便于重复调用
+  }
+  function Car(){
+    // 构造器函数
+    // 构造函数调用的目的是拿到开辟的这块内存的引用
+  }
+```
+### 原型和原型链
 ```javascript
 ```
 #### ul标签下面有很多li标签，点击每一个li标签都能打印出该标签的内容
