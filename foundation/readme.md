@@ -1,4 +1,8 @@
 ## 前端面试题
+* [Javascript面向对象实现]
+* [Javascript在面向对象中函数的作用]
+* [Javascript的原型和原型链是什么]
+* [闭包是什么]
 * [面试题之js数组遍历](./codeFiles/面试题之js数组遍历.md)
 * [面试题之js数组插入删除](./codeFiles/面试题之js数组插入删除.md)
 * [css选择器](./codeFiles/css选择器.md)
