@@ -73,6 +73,9 @@
 ### 原型和原型链
 ```javascript
 ```
+### 闭包
+```javascript
+```
 ### 唯一识别标签
 ```javascript
 <!DOCTYPE html>
