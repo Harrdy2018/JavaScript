@@ -75,6 +75,35 @@
 ```
 ### 闭包
 ```javascript
+// 下面这个不是闭包，但是
+function parent(){
+  var n=1;
+  setTimeout(() => {
+    console.log(n)
+  }, 2000);
+}
+parent();
+parent函数的执行是瞬间的（也许用时只是0.00001毫秒），在parent的函数体内创建了一个变量n，
+在parent执行完毕之后n并没有被释放，这是因为setTimeout内的匿名函数存在这对n的引用。待到2秒后函数体内的匿名函数被执行完毕,n才被释放。
+
+闭包用处：一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+// 执行p函数的时候，parent形成闭包
+function parent(){
+  var n=1;
+  add=function(){
+    n+=1;
+  }
+  function child(){
+    console.log(n)
+  }
+  return child;
+}
+var p=parent();
+p(); //1
+add();
+p(); //2
+parent函数形成闭包。child函数一共运行了两次，第一次的值是1，第二次的值是2。
+这证明了，函数parent中的局部变量n一直保存在内存中，并没有在parent调用后被自动清除。
 ```
 ### 唯一识别标签
 ```javascript
