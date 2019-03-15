@@ -3,6 +3,7 @@
 * [面向对象中函数的作用](#面向对象中函数的作用)
 * [原型和原型链](#原型和原型链)
 * [闭包](#闭包)
+* [标签的ID可以唯一标志DOM元素](#唯一识别标签)
 * [面试题之js数组遍历](./codeFiles/面试题之js数组遍历.md)
 * [面试题之js数组插入删除](./codeFiles/面试题之js数组插入删除.md)
 * [css选择器](./codeFiles/css选择器.md)
@@ -71,6 +72,24 @@
 ```
 ### 原型和原型链
 ```javascript
+```
+### 唯一识别标签
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+<body>
+  <div id="app">this is div</div>
+</body>
+<script>
+  console.log(app) //<div id="app">this is div</div>
+  console.log(window.app) //<div id="app">this is div</div>
+  console.log(document.getElementById('app')===app) //true
+</script>
+</html>
 ```
 #### ul标签下面有很多li标签，点击每一个li标签都能打印出该标签的内容
 ```html
