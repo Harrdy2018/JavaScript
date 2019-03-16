@@ -3,6 +3,7 @@
 * [面向对象中函数的作用](#面向对象中函数的作用)
 * [原型和原型链](#原型和原型链)
 * [闭包](#闭包)
+* [this的指向](#指向问题)
 * [delete用法](#删除操作)
 * [标签的ID可以唯一标志DOM元素](#唯一识别标签)
 * [面试题之js数组遍历](./codeFiles/面试题之js数组遍历.md)
@@ -129,6 +130,39 @@ console.log(test.name);
 console.log(test.age);
 利用闭包的特性能让我们封装一些复杂的函数逻辑，在这个例子中调用test上的方法（getName,getAge）间接访问函数里私有变量，
 但是直接调用test.name是没法拿到name的。
+```
+### 指向问题
+* this的指向是由它所在函数调用的上下文决定的，而不是由它所在函数定义的上下文决定的
+```javascript
+<script>
+var name="lk";
+var obj={
+  name: 'hha',
+  getName: function(){
+    function test(){
+      return this.name
+    }
+    return test
+  }
+}
+console.log(obj.getName()()) //lk this所在的函数在外面调用
+</script>
+```
+```javascript
+<script>
+var name="lk";
+var obj={
+  name: 'hha',
+  getName: function(){
+    var that=this;
+    function test(){
+      return that.name
+    }
+    return test
+  }
+}
+console.log(obj.getName()()) //hha
+</script>
 ```
 ### 删除操作
 ```javascript
