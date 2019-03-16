@@ -73,6 +73,40 @@
 ```
 ### 原型和原型链
 ```javascript
+<script>
+// 可以删除对象的属性
+let obj={
+  name: 'lk'
+}
+console.log(delete obj.name); //true
+
+// 删除申明的变量
+var age=18; //使用var申明的变量不能被删除
+sex=1;
+console.log(delete age); //false
+console.log(delete sex); //true
+
+// 使用eval()解析的一段代码，尽管用了val,也能删除
+eval('var aa=123');
+console.log(delete aa); //true
+
+//注意delete删除数组 数组长度不变，数组的索引也不变
+var test=[]
+test[1]=2;
+test[4]=3;
+console.log(test) //[,2,,,3]
+console.log(delete test[1]); //true
+console.log(test) //[,,,,3]
+
+//原理 
+var person={
+  name:'zz'
+}
+Object.defineProperty(person,'name',{
+  configurable:false
+})
+console.log(delete person.name); //false
+</script>
 ```
 ### 闭包
 ```javascript
