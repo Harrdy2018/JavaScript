@@ -5,6 +5,7 @@
 * [闭包](#闭包)
 * [this的指向](#指向问题)
 * [delete用法](#删除操作)
+* [将类数组转化为数组](#将类数组转化为数组)
 * [标签的ID可以唯一标志DOM元素](#唯一识别标签)
 * [面试题之js数组遍历](./codeFiles/面试题之js数组遍历.md)
 * [面试题之js数组插入删除](./codeFiles/面试题之js数组插入删除.md)
@@ -199,6 +200,20 @@ Object.defineProperty(person,'name',{
   configurable:false
 })
 console.log(delete person.name); //false
+</script>
+```
+### 将类数组转化为数组
+```javascript
+function test(){
+  return arguments;
+}
+var aa=test(1,2,3,4);
+console.log(aa); //aa 就是类数组
+console.log(Array.prototype.slice.call(aa)); //[1,2,3,4]
+//ES6
+console.log(aa) //aa 就是类数组
+console.log(Array.from(aa))
+console.log(aa) //aa 就是类数组
 </script>
 ```
 ### 唯一识别标签
