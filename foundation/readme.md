@@ -3,6 +3,7 @@
 * [面向对象中函数的作用](#面向对象中函数的作用)
 * [原型和原型链](#原型和原型链)
 * [闭包](#闭包)
+* [delete用法](#删除操作)
 * [标签的ID可以唯一标志DOM元素](#唯一识别标签)
 * [面试题之js数组遍历](./codeFiles/面试题之js数组遍历.md)
 * [面试题之js数组插入删除](./codeFiles/面试题之js数组插入删除.md)
@@ -126,6 +127,9 @@ console.log(test.name);
 console.log(test.age);
 利用闭包的特性能让我们封装一些复杂的函数逻辑，在这个例子中调用test上的方法（getName,getAge）间接访问函数里私有变量，
 但是直接调用test.name是没法拿到name的。
+```
+### 删除操作
+```javascript
 ```
 ### 唯一识别标签
 ```javascript
