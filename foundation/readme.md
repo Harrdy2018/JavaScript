@@ -167,6 +167,22 @@ console.log(person.age)//undefined
 ```
 ### 传参处理
 ```javascript
+// 如何处理get的传参
+const queryString=require('querystring');
+var url="http://www.baidu.com?";
+var params={name:'lk',age:undefined,sex:1}
+//清除无意义的键值
+var clearNullKeys=function (src){
+  let target={}
+  for(let key in src){
+    if(src.hasOwnProperty(key) && src[key] !==null && src[key] !==undefined){
+      target[key]=src[key]
+    }
+  }
+  return target
+}
+console.log(clearNullKeys(params)) //{ name: 'lk', sex: 1 }
+console.log(url+queryString.stringify(clearNullKeys(params))) //http://www.baidu.com?name=lk&sex=1
 ```
 ### 指向问题
 * this的指向是由它所在函数调用的上下文决定的，而不是由它所在函数定义的上下文决定的
