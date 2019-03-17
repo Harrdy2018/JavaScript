@@ -135,6 +135,34 @@ console.log(test.age);
 ```
 ### 有还是没有
 ```javascript
+<script>
+//undefined代表的是申明未赋值
+//null代表不存在
+var a;
+console.log(a)//undefined
+var b=document.getElementById('div1')
+console.log(b)//null
+//有还是没有呢
+//if里面表达式为单独一个值时，表示判断有没有
+if(!a){
+  console.log('没有')
+}
+if(!b){
+  console.log('没有')
+}
+//null/undefined和true/false根本没关系
+console.log(a===true);//false
+console.log(b===true);//false
+console.log(a===false);//false
+console.log(b===false);//false
+//
+(function add(x){
+  console.log(x)//x为undefined因为，x开始是有的只是未赋值而已
+})()
+//对象里面value没值时，为undefined,有点不好理解
+var person={name:'lk'}
+console.log(person.age)//undefined
+</script>
 ```
 ### 指向问题
 * this的指向是由它所在函数调用的上下文决定的，而不是由它所在函数定义的上下文决定的
