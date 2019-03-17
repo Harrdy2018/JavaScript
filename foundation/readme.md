@@ -4,6 +4,7 @@
 * [原型和原型链](#原型和原型链)
 * [闭包](#闭包)
 * [null和undefined](#有还是没有)
+* [get方式发送请求时传参处理](#传参处理)
 * [this的指向](#指向问题)
 * [delete用法](#删除操作)
 * [将类数组转化为数组](#将类数组转化为数组)
@@ -163,6 +164,9 @@ console.log(b===false);//false
 var person={name:'lk'}
 console.log(person.age)//undefined
 </script>
+```
+### 传参处理
+```javascript
 ```
 ### 指向问题
 * this的指向是由它所在函数调用的上下文决定的，而不是由它所在函数定义的上下文决定的
