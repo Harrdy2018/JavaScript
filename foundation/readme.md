@@ -391,35 +391,19 @@ console.log(aa) //aa 就是类数组
 ```
 ***
 #### 数组去重
-```html
-<!doctype html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <title>test for jobs</title>
-    </head>
-    <body>
-      
-    </body>
-    <script>
-        console.log("Hello World !!!");
-        var aa=[1,2,2,3,3,4,5,5,7,7,7];
-        var obj={};
-        var newaa=[];
-        aa.forEach(function(value,key,arr){
-            /*
-            1--->obj[1] undefined--->设置obj[1]=true 在新数组尾部添加 1
-            2--->obj[2] undefined--->设置obj[1]=true 在新数组尾部添加 1
-            2--->obj[2] true--->不执行 去重成功
-            */
-            if(!obj[value]){
-                obj[value]=true;
-                newaa.push(value);
-            }
-        })
-        console.log(newaa);
-    </script>
-</html>
+* 利用一个空的obj对象，将数组一个个放进去，如果是第一次放，则这是我们需要的值，应该保留
+```node
+let arr=[1,2,2,3,3,4,4,5,5,5,5,7]
+let obj={}
+var newArr=arr.filter(v=>{
+  if(obj[v]){
+    return false
+  }else{
+    obj[v]=true
+    return true
+  }
+})
+console.log(newArr)
 ```
 ```html
 <!doctype html>
