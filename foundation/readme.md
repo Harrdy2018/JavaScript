@@ -423,6 +423,16 @@ let arr=[1,2,2,3,3,4,4,5,5,5,5,7]
 let newArr=[...new Set(arr)]
 console.log(newArr)
 ```
+* reduce 思路一样
+```node
+let arr=[1,2,2,3,3,4,4,5,5,5,5,7]
+let obj={}
+let newArr=arr.reduce((p,c)=>{
+  obj[c] ? '':obj[c]=true && p.push(c)
+  return p
+},[])
+console.log(newArr)
+```
 ***
 #### 跨域问题
 * 跨域实现百度搜索栏
