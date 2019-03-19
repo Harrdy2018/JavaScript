@@ -405,27 +405,12 @@ var newArr=arr.filter(v=>{
 })
 console.log(newArr)
 ```
-```html
-<!doctype html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <title>test for jobs</title>
-    </head>
-    <body>
-      
-    </body>
-    <script>
-        console.log("Hello World !!!");
-        var aa=[1,2,2,3,3,4,5,5,7,7,7];
-        var newaa=aa.filter(function(value,index,arr){
-            return arr.indexOf(value,0)===index;
-        });
-        console.log(newaa);
-    </script>
-</html>
+* 我们将保留依据查找得到的序号和自己本身序号相同的元素
+```node
+let arr=[1,2,2,3,3,4,4,5,5,5,5,7]
+var newArr=arr.filter((v,index)=>arr.indexOf(v,0) === index)
+console.log(newArr)
 ```
-
 ***
 #### 跨域问题
 * 跨域实现百度搜索栏
