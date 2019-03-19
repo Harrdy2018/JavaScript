@@ -411,6 +411,18 @@ let arr=[1,2,2,3,3,4,4,5,5,5,5,7]
 var newArr=arr.filter((v,index)=>arr.indexOf(v,0) === index)
 console.log(newArr)
 ```
+* set是一种定义不重复数组的数据类型
+```node
+let arr=[1,2,2,3,3,4,4,5,5,5,5,7]
+let newArr=Array.from(new Set(arr))
+console.log(newArr)
+```
+* 扩展运算符
+```node
+let arr=[1,2,2,3,3,4,4,5,5,5,5,7]
+let newArr=[...new Set(arr)]
+console.log(newArr)
+```
 ***
 #### 跨域问题
 * 跨域实现百度搜索栏
