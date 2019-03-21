@@ -436,7 +436,34 @@ console.log(newArr)
 ```
 ***
 #### 跨域问题
-* 跨域实现百度搜索栏
+* jsonp跨域 script标签可以实现跨域，可以执行远程服务器上的脚本
+```javascript
+// 远程服务器上
+// test.js
+console.log('我在远程服务器上！！！')
+
+//客户端 控制台将打印结果
+<script src="http://harrdy2018.github.io/test.js"></script>
+```
+* jsonp跨域请求信息
+```javascript
+// 远程服务器上
+// myinfo
+getData({
+name: 'lukang',
+age: 18,
+sex: 0
+})
+
+// 浏览器
+<script>
+  function getData(data){
+    console.log(data)
+  }
+</script>
+<script src="http://harrdy2018.github.io/myinfo"></script>
+```
+* jsonp跨域实现百度搜索栏
 ```html
 <!DOCTYPE html>
 <html lang="en">
