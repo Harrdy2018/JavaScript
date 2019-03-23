@@ -19,6 +19,7 @@
 * [居中](#居中)
 * [解释固定定位](#解释固定定位)
 * [meta标签](./codeFiles/meta标签.md)
+* [判断终端环境信息](#判断终端环境信息)
 ## 前端安全性问题
 * [XSS攻击](#跨站脚本攻击)
 * [CSRF攻击](#跨站点请求伪造攻击)
@@ -685,6 +686,21 @@ div的宽度一定要固定 不然div会充满整个屏幕
       background-color: brown; 
     }
   </style>
+```
+### 判断终端的环境信息
+* window.navigator.userAgent 判断终端设备
+```javascript
+Google浏览器 
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36
+Edge浏览器 
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134
+ie浏览器
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
+
+判断是否是Edge浏览器
+let isEdge=window.navigator.userAgent.indexOf('Edge')>-1;
+判断是否是ie 11浏览器 ie内核是Trident
+let isIE11=window.navigator.userAgent.indexOf('Trident')>-1 && window.navigator.userAgent.indexOf('rv:11.0')>-1;
 ```
 ***
 ### 跨站脚本攻击
