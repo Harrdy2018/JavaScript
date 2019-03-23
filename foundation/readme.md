@@ -687,7 +687,7 @@ div的宽度一定要固定 不然div会充满整个屏幕
     }
   </style>
 ```
-### 判断终端的环境信息
+### 判断终端环境信息
 * window.navigator.userAgent 判断终端设备
 ```javascript
 Google浏览器 
