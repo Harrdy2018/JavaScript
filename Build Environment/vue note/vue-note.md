@@ -41,24 +41,3 @@
 </script>
 </html>
 ```
-
-### 笔试的时候，js/node如何获取用户的输入
-```html
-const readline=require('readline');
-const res=readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-let arr=[]
-res.on('line',input=>{
-  arr.push(input)
-  if(arr.length === 2){
-    var newArr=arr.map(item=>item.split(' ').filter(e=>e!=='').map(e=>+e))
-    console.log(newArr)
-    res.close()
-  }
-})
-res.on('close',()=>{
-  process.exit(0)
-})
-```
