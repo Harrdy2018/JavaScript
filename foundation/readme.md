@@ -783,43 +783,14 @@ h1标签的语义就是用它来标识特定网页或部分最重要的标题。
 方便其他设备解析: 如屏幕阅读器、盲人阅读器、移动设备等，以有意义的方式来渲染网页。
 ```
 * h1~h6标签 能格式化样式 用于定义页面的标题，h1元素具有最高等级，h6元素具有最低的等级
-```html
-<h1>top level heading</h1>
-<section>
-  <h2>2nd level heading</h2>
-  <h3>3nd level heading</h3>
-  <h4>4th level heading</h4>
-  <h5>5th level heading</h5>
-  <h6>6th level heading</h6>
-</section>
-```
-* header标签 需要自己加样式 用于定义页面的介绍展示区域，通常包括网站logo、主导航、全站链接以及搜索框
-```html
-<header>
-  <h1>HTML Reference</h1>
-  <nav>
-    <a>Home</a>
-    <a>About</a>
-    <a>Contact</a>
-  </nav>
-</header>
-```
-* nav标签 需要自己加样式 定义页面的导航链接部分区域
-```html
-<nav>
-  <a>Home</a>
-  <a>About</a>
-  <a>Contact</a>
-</nav>
-```
-* main标签 需要自己加样式 定义页面的主要内容，一个页面只能使用一次
-```html
-<main>
-  <h1>My blog test</h1>
-  <p>Lorem ipsum dolor sit amet.Donec viverra nec nulla vitae mollis.</p>
-  <p>etc.</p>
-</main>
-```
+* header标签 定义页面的介绍展示区域，通常包括网站logo、主导航、全站链接以及搜索框
+* nav标签 定义页面的导航链接部分区域
+* main标签 定义页面的主要内容，一个页面只能使用一次
+* article标签 定义页面独立的内容，它可以有自己的header、footer、sections等，专注于单个主题的博客文章，报纸文章或网页文章
+* section标签 用于标记文档的各个部分，例如长表单文章的章节或主要部分
+* aside标签 定义与主要内容相关的内容块。通常显示为侧边栏
+* footer标签 定义文档的底部区域，通常包含文档的作者，著作权信息，链接的使用条款，联系信息等
+* small标签 为较不重要的内容定义小字体。如果被包围的字体已经是字体模型所支持的最小字号，那么<small>标签将不起任何作用。
 ### 笔试获取用户输入
 ```node
 const readline=require('readline');
