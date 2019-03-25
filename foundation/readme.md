@@ -817,6 +817,20 @@ h1标签的语义就是用它来标识特定网页或部分最重要的标题。
 由于使用了title属性，鼠标移到PRC时会出现全称
 <abbr title="People's Republic of China">PRC</abbr>
 ```
+* q标签 标记一个短的引用
+```html
+<body>
+<q>样式就是加了一个引号</q>
+</body>
+```
+* li标签 可以单独使用 默认无序列表
+```html
+<body>
+<li>测试li标签A</li>
+<li>测试li标签B</li>
+<li>测试li标签C</li>
+</body>
+```
 ### 笔试获取用户输入
 ```node
 const readline=require('readline');
