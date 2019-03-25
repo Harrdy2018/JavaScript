@@ -790,6 +790,17 @@ h1标签的语义就是用它来标识特定网页或部分最重要的标题。
 * section标签 用于标记文档的各个部分，例如长表单文章的章节或主要部分
 * aside标签 定义与主要内容相关的内容块。通常显示为侧边栏
 * footer标签 定义文档的底部区域，通常包含文档的作者，著作权信息，链接的使用条款，联系信息等
+* blockquote标签
+```html
+<body>
+<span>这里测试块引用的开始</span>
+<blockquote cite="https://www.baidu.com">
+  块引用，blockquote为块级元素
+  四周都有margin,cite属性可用来规定引用的来源
+</blockquote>
+<span>这里测试块引用的结尾</span>
+</body>
+```
 * strong和em标签
 ```html
 <strong>把文本定义为语气更强的强调的内容，以表示内容的重要性</strong>
