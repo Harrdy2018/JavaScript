@@ -20,6 +20,7 @@
 * [解释固定定位](#解释固定定位)
 * [meta标签](./codeFiles/meta标签.md)
 * [判断终端环境信息](#判断终端环境信息)
+* [document对象](#文档对象)
 ## 前端安全性问题
 * [XSS攻击](#跨站脚本攻击)
 * [CSRF攻击](#跨站点请求伪造攻击)
@@ -701,6 +702,58 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2
 let isEdge=window.navigator.userAgent.indexOf('Edge')>-1;
 判断是否是ie 11浏览器 ie内核是Trident
 let isIE11=window.navigator.userAgent.indexOf('Trident')>-1 && window.navigator.userAgent.indexOf('rv:11.0')>-1;
+```
+### 文档对象
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>测试js代码</title>
+  </head>
+  <body>
+    <ol>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ol>
+    <div id="div1">我将用id获取</div>
+    <div id="div1">我将又用id获取</div>
+    <div class="example">我将用样式类名获取</div>
+    <div class="example">我将又用样式类名获取</div>
+    <div name="example">我将用name属性获取</div>
+    <div name="example">我将又用name属性获取</div>
+  </body>
+  <script>
+    // 选择节点
+    var oLi=document.querySelector('li') //默认选择最前面一个 HTMLLIElement
+    var oLiArray=document.querySelectorAll('li') //返回集合 NodeList
+    var oDiv=document.getElementById("div1") //默认选择最前面一个 HTMLDivElement
+    var ooDiv=document.getElementsByClassName('example') //返回集合 HTMLCollection
+    var oName=document.getElementsByName("example") //返回集合 NodeList
+    var oTag=document.getElementsByTagName('div') //返回集合 HTMLCollection
+    // 创建节点
+    //创建元素节点
+    var oBtn=document.createElement('BUTTON') //HTMLButtonElement
+    //创建文本节点
+    var oText=document.createTextNode("hahahhahh") //Text
+    //创建注释节点
+    var oComment=document.createComment("ahhahhahahhah") //Comment
+    //创建属性节点
+    var oAttr=document.createAttribute("class");
+    console.log(oAttr)
+    oAttr.value="myClass"
+    console.log(oAttr)
+    console.log(toString.call(oAttr)) //Attr
+    //创建文档片段节点
+    var oDocFrag=document.createDocumentFragment();
+    var oLi=document.createElement('LI');
+    oLi.textContent="我在文档片段里面";
+    oDocFrag.appendChild(oLi);
+    console.log(oDocFrag)
+    console.log(toString.call(oDocFrag)) //DocumentFragment
+  </script>
+</html>
 ```
 ***
 ### 跨站脚本攻击
