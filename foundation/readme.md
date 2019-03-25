@@ -831,6 +831,8 @@ h1标签的语义就是用它来标识特定网页或部分最重要的标题。
 <li>测试li标签C</li>
 </body>
 ```
+* ul、ol标签只有搭配li标签才能发挥其真正作用
+* p、a标签
 ### 笔试获取用户输入
 ```node
 const readline=require('readline');
