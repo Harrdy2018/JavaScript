@@ -22,6 +22,7 @@
 * [meta标签](./codeFiles/meta标签.md)
 * [判断终端环境信息](#判断终端环境信息)
 * [document对象](#文档对象)
+* [谈谈你对HTML5语义化标签的理解](#语义化标签)
 * [Node如何获取用户的输入？？？](#笔试获取用户输入)
 ## 前端安全性问题
 * [XSS攻击](#跨站脚本攻击)
@@ -759,6 +760,12 @@ let isIE11=window.navigator.userAgent.indexOf('Trident')>-1 && window.navigator.
     console.log(toString.call(oDocFrag)) //DocumentFragment
   </script>
 </html>
+```
+### 语义化标签
+* 为什么会出现语义化标签?
+```
+当下html是靠div+css来铸造页面的整体框架和结构的，通篇大量的div可读性极低，因此诞生了这些特殊的标签，简单地说就是见名知义，
+使页面更清晰，方便维护和开发。
 ```
 ### 笔试获取用户输入
 ```node
