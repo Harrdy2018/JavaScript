@@ -21,6 +21,7 @@
 * [meta标签](./codeFiles/meta标签.md)
 * [判断终端环境信息](#判断终端环境信息)
 * [document对象](#文档对象)
+* [Node如何获取用户的输入？？？](#笔试获取用户输入)
 ## 前端安全性问题
 * [XSS攻击](#跨站脚本攻击)
 * [CSRF攻击](#跨站点请求伪造攻击)
@@ -754,6 +755,26 @@ let isIE11=window.navigator.userAgent.indexOf('Trident')>-1 && window.navigator.
     console.log(toString.call(oDocFrag)) //DocumentFragment
   </script>
 </html>
+```
+### 笔试获取用户输入
+```node
+const readline=require('readline');
+const res=readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+let arr=[]
+res.on('line',input=>{
+  arr.push(input)
+  if(arr.length === 2){
+    var newArr=arr.map(item=>item.split(' ').filter(e=>e!=='').map(e=>+e))
+    console.log(newArr)
+    res.close()
+  }
+})
+res.on('close',()=>{
+  process.exit(0)
+})
 ```
 ***
 ### 跨站脚本攻击
