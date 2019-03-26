@@ -16,7 +16,7 @@
 * [判断终端环境信息](#判断终端环境信息)
 * [document对象](#文档对象)
 * [Node如何获取用户的输入？？？](#笔试获取用户输入)
-* [async关键字](#异步关键字)
+* [async/await关键字](#异步等待关键字)
 ***
 ## HTML
 * [谈谈你对HTML5语义化标签的理解](#语义化标签)
@@ -614,7 +614,7 @@ res.on('close',()=>{
   process.exit(0)
 })
 ```
-### 异步关键字
+### 异步等待关键字
 * 初识async
 ```js
 //通过在函数前面加关键字async,使得函数返回一个promise对象
@@ -639,6 +639,43 @@ async function f(){
 }
 var res=f()
 res.then(data=>console.log(data)) //I success
+
+//当async函数执行时，遇到await就会停止等待，直到异步操作完整之后，如果await后面接promise,则不会往下面执行
+async function f(){
+  await Promise.reject("reject status")
+  console.log("这里执行么")
+  return "haha"
+}
+f().then(()=>{},data=>console.log(data)) //reject status
+
+//如果await后面不是接promise，则按照函数的返回值
+async function f(){
+  await '1213'
+  await 123456
+  await true
+  console.log("这里执行么")
+  return "haha"
+}
+f().then((data)=>{console.log(data)},data=>console.log(data))//这里执行么 haha
+
+//只要一个await语句后面的 Promise 变为reject，那么整个async函数都会中断执行
+async function f(){
+  await Promise.resolve("successA")
+  console.log("这里执行么A")
+  await Promise.reject("faield")
+  await Promise.resolve("successB")
+  console.log("这里执行么B")
+  return "haha"
+}
+f().then((data)=>{console.log(data)},data=>console.log(data)) //这里执行么A faield
+```
+* async函数的错误处理机制
+```js
+//async函数内部抛出错误，会导致返回的 Promise 对象变为reject状态。抛出的错误对象会被catch方法回调函数接收到
+async function f(){
+  throw new Error("has error")
+}
+f().catch(e=>console.log(e))
 ```
 ***
 ***
