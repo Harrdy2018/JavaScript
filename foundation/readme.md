@@ -17,6 +17,7 @@
 * [document对象](#文档对象)
 * [Node如何获取用户的输入？？？](#笔试获取用户输入)
 * [async/await关键字](#异步等待关键字)
+* [事件代理](#事件代理)
 ***
 ## HTML
 * [谈谈你对HTML5语义化标签的理解](#语义化标签)
@@ -676,6 +677,36 @@ async function f(){
   throw new Error("has error")
 }
 f().catch(e=>console.log(e))
+```
+### 事件代理
+```html
+<!--test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test html</title>
+</head>
+<body>
+<ul>
+  <li>AAA</li>
+  <li>BBB</li>
+  <li>CCC</li>
+  <li>DDD</li>
+  <li>EEE</li>
+  <li>FFF</li>
+  <li>GGG</li>
+</ul>
+</body>
+<script>
+  var oUl=document.querySelector("ul");
+  oUl.addEventListener('click',event=>{
+    if(event.target.tagName.toLowerCase()==="li"){
+      event.target.style.backgroundColor="red";
+    }
+  })
+</script>
+</html>
 ```
 ***
 ***
