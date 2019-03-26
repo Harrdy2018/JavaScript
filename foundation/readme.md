@@ -615,7 +615,30 @@ res.on('close',()=>{
 })
 ```
 ### 异步关键字
+* 初识async
 ```js
+//通过在函数前面加关键字async,使得函数返回一个promise对象
+async function f1(){
+  return 'hello world'
+}
+var res=f1()
+res.then(data=>console.log(data)) //hello world
+
+//由于函数没返回值相当于 return undefined
+async function f2(){
+  console.log('hello world')//hello world
+}
+var res=f2()
+res.then(data=>console.log(data)) //undefined
+
+//直接返回一个promise对象
+async function f(){
+  return new Promise((resolve,reject)=>{
+    resolve("I success")
+  })
+}
+var res=f()
+res.then(data=>console.log(data)) //I success
 ```
 ***
 ***
