@@ -855,6 +855,32 @@ res.on('close',()=>{
   process.exit(0)
 })
 ```
+## css
+### 如何导入样式表
+* 直接在标签里写样式
+* 内联css文件，直接在head里面写css
+* 链接式:在网页的<head></head>标签对中使用<link>标记来引入外部样式表文件
+```css
+div{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>test html</title>
+  <link rel="stylesheet" type="text/css" href="./test.css"/>
+</head>
+<body>
+<div></div>
+</body>
+<script>
+</script>
+</html>
+```
 ***
 ***
 ***
