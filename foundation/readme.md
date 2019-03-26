@@ -863,6 +863,12 @@ res.on('close',()=>{
 * 直接在标签里写样式
 * 内联css文件，直接在head里面写css
 * 链接式:在网页的<head></head>标签对中使用<link>标记来引入外部样式表文件
+```
+link标签
+rel  必需.定义当前文档与被链接文档之间的关系 icon/last/license/next/stylesheet
+type 规定被链接文档的MIME类型
+href 定义被链接文档的位置
+```
 ```css
 /*test.css*/
 div{
@@ -878,6 +884,24 @@ div{
 <head>
   <title>test html</title>
   <link rel="stylesheet" type="text/css" href="./test.css"/>
+</head>
+<body>
+<div></div>
+</body>
+<script>
+</script>
+</html>
+```
+* @import 导入式
+```html
+<!--test.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>test html</title>
+  <style>
+    @import "./test.css"
+  </style>
 </head>
 <body>
 <div></div>
