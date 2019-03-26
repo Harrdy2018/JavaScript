@@ -910,6 +910,10 @@ div{
 </script>
 </html>
 ```
+```
+link引用和import引用区别是：link是html加载前就引用，而import是html加载后才引用。
+举例，采用impor引用，会先显示无样式的页面，然后再把样式放进去
+```
 ***
 ***
 ***
