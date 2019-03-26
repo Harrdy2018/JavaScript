@@ -1,5 +1,5 @@
 # 前端面试题
-## js
+## JS
 * [面向对象实现](#面向对象实现)
 * [面向对象中函数的作用](#面向对象中函数的作用)
 * [闭包](#闭包)
@@ -16,7 +16,7 @@
 * [判断终端环境信息](#判断终端环境信息)
 * [document对象](#文档对象)
 * [Node如何获取用户的输入？？？](#笔试获取用户输入)
-## html
+## HTML
 * [谈谈你对HTML5语义化标签的理解](#语义化标签)
 ## CSS
 * [css选择器](./codeFiles/css选择器.md)
@@ -26,7 +26,7 @@
 * [解释固定定位](#解释固定定位)
 * [meta标签](./codeFiles/meta标签.md)
 * [css文件引入的四种方式](#如何导入样式表)
-## 前端安全性问题
+## 前端安全
 * [XSS攻击](#跨站脚本攻击)
 * [CSRF攻击](#跨站点请求伪造攻击)
 ## 计算机网络
@@ -43,7 +43,7 @@
 ***
 ***
 ***
-## js
+## JS
 ### 面向对象实现
 * 面向对象特点：继承、多态、封装
 ```javascript
@@ -522,6 +522,173 @@ sex: 0
 </script>
 </html>
 ```
+### 判断终端环境信息
+* window.navigator.userAgent 判断终端设备
+```javascript
+Google浏览器 
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36
+Edge浏览器 
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134
+ie浏览器
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
+
+判断是否是Edge浏览器
+let isEdge=window.navigator.userAgent.indexOf('Edge')>-1;
+判断是否是ie 11浏览器 ie内核是Trident
+let isIE11=window.navigator.userAgent.indexOf('Trident')>-1 && window.navigator.userAgent.indexOf('rv:11.0')>-1;
+```
+### 文档对象
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>测试js代码</title>
+  </head>
+  <body>
+    <ol>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ol>
+    <div id="div1">我将用id获取</div>
+    <div id="div1">我将又用id获取</div>
+    <div class="example">我将用样式类名获取</div>
+    <div class="example">我将又用样式类名获取</div>
+    <div name="example">我将用name属性获取</div>
+    <div name="example">我将又用name属性获取</div>
+  </body>
+  <script>
+    // 选择节点
+    var oLi=document.querySelector('li') //默认选择最前面一个 HTMLLIElement
+    var oLiArray=document.querySelectorAll('li') //返回集合 NodeList
+    var oDiv=document.getElementById("div1") //默认选择最前面一个 HTMLDivElement
+    var ooDiv=document.getElementsByClassName('example') //返回集合 HTMLCollection
+    var oName=document.getElementsByName("example") //返回集合 NodeList
+    var oTag=document.getElementsByTagName('div') //返回集合 HTMLCollection
+    // 创建节点
+    //创建元素节点
+    var oBtn=document.createElement('BUTTON') //HTMLButtonElement
+    //创建文本节点
+    var oText=document.createTextNode("hahahhahh") //Text
+    //创建注释节点
+    var oComment=document.createComment("ahhahhahahhah") //Comment
+    //创建属性节点
+    var oAttr=document.createAttribute("class");
+    console.log(oAttr)
+    oAttr.value="myClass"
+    console.log(oAttr)
+    console.log(toString.call(oAttr)) //Attr
+    //创建文档片段节点
+    var oDocFrag=document.createDocumentFragment();
+    var oLi=document.createElement('LI');
+    oLi.textContent="我在文档片段里面";
+    oDocFrag.appendChild(oLi);
+    console.log(oDocFrag)
+    console.log(toString.call(oDocFrag)) //DocumentFragment
+  </script>
+</html>
+```
+### 笔试获取用户输入
+```node
+const readline=require('readline');
+const res=readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+let arr=[]
+res.on('line',input=>{
+  arr.push(input)
+  if(arr.length === 2){
+    var newArr=arr.map(item=>item.split(' ').filter(e=>e!=='').map(e=>+e))
+    console.log(newArr)
+    res.close()
+  }
+})
+res.on('close',()=>{
+  process.exit(0)
+})
+```
+***
+***
+***
+## HTML
+### 语义化标签
+* 为什么会出现语义化标签?
+```
+当下html是靠div+css来铸造页面的整体框架和结构的，通篇大量的div可读性极低，因此诞生了这些特殊的标签，简单地说就是见名知义，
+使页面更清晰，方便维护和开发。
+```
+* 什么是语义化标签？
+```
+语义是指对一个词或者句子含义的正确解释。
+很多html标签也具有语义的意义，也就是说元素本身传达了关于标签所包含内容类型的一些信息。
+例如，当浏览器解析到<h1></h1>标签时，它将该标签解释为包含这一块内容的最重要的标题。
+h1标签的语义就是用它来标识特定网页或部分最重要的标题。
+```
+* 语义化标签的作用？
+```
+代码结构: 使页面没有css的情况下，也能够呈现出很好的内容结构
+有利于SEO: 爬虫依赖标签来确定关键字的权重，因此可以和搜索引擎建立良好的沟通，帮助爬虫抓取更多的有效信息
+提升用户体验： 例如title、alt可以用于解释名称或者解释图片信息，以及label标签的灵活运用。
+便于团队开发和维护: 语义化使得代码更具有可读性，让其他开发人员更加理解你的html结构，减少差异化。
+方便其他设备解析: 如屏幕阅读器、盲人阅读器、移动设备等，以有意义的方式来渲染网页。
+```
+* h1~h6标签 用于定义页面的标题，h1元素具有最高等级，h6元素具有最低的等级
+* header标签 定义页面的介绍展示区域，通常包括网站logo、主导航、全站链接以及搜索框
+* nav标签 定义页面的导航链接部分区域
+* main标签 定义页面的主要内容，一个页面只能使用一次
+* article标签 定义页面独立的内容，它可以有自己的header、footer、sections等
+* section标签 用于标记文档的各个部分，例如长表单文章的章节或主要部分
+* aside标签 定义与主要内容相关的内容块。通常显示为侧边栏
+* footer标签 定义文档的底部区域，通常包含文档的作者，著作权信息，链接的使用条款，联系信息等
+* blockquote标签
+```html
+<body>
+<span>这里测试块引用的开始</span>
+<blockquote cite="https://www.baidu.com">
+  块引用，blockquote为块级元素
+  四周都有margin,cite属性可用来规定引用的来源
+</blockquote>
+<span>这里测试块引用的结尾</span>
+</body>
+```
+* strong和em标签
+```html
+<strong>把文本定义为语气更强的强调的内容，以表示内容的重要性 样式加粗</strong>
+<em>标记内容着重点，通常呈现为斜体文字</em>
+```
+* small标签 为较不重要的内容定义小字体
+```html
+如果被包围的字体已经是字体模型所支持的最小字号，那么此标签将不起任何作用
+<p>这是正常字体</p>
+<small>这是小一点的字体</small>
+```
+* abbr标签 解释缩写词。使用title属性可提供全称
+```html
+由于使用了title属性，鼠标移到PRC时会出现全称
+<abbr title="People's Republic of China">PRC</abbr>
+```
+* q标签 标记一个短的引用
+```html
+<body>
+<q>样式就是加了一个引号</q>
+</body>
+```
+* li标签 可以单独使用 默认无序列表
+```html
+<body>
+<li>测试li标签A</li>
+<li>测试li标签B</li>
+<li>测试li标签C</li>
+</body>
+```
+* ul、ol标签只有搭配li标签才能发挥其真正作用
+* p、a标签
+***
+***
+***
+## css
 ***
 ### 居中
 #### p标签内的文字居中
@@ -696,169 +863,6 @@ div的宽度一定要固定 不然div会充满整个屏幕
     }
   </style>
 ```
-### 判断终端环境信息
-* window.navigator.userAgent 判断终端设备
-```javascript
-Google浏览器 
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36
-Edge浏览器 
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134
-ie浏览器
-Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
-
-判断是否是Edge浏览器
-let isEdge=window.navigator.userAgent.indexOf('Edge')>-1;
-判断是否是ie 11浏览器 ie内核是Trident
-let isIE11=window.navigator.userAgent.indexOf('Trident')>-1 && window.navigator.userAgent.indexOf('rv:11.0')>-1;
-```
-### 文档对象
-```html
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>测试js代码</title>
-  </head>
-  <body>
-    <ol>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ol>
-    <div id="div1">我将用id获取</div>
-    <div id="div1">我将又用id获取</div>
-    <div class="example">我将用样式类名获取</div>
-    <div class="example">我将又用样式类名获取</div>
-    <div name="example">我将用name属性获取</div>
-    <div name="example">我将又用name属性获取</div>
-  </body>
-  <script>
-    // 选择节点
-    var oLi=document.querySelector('li') //默认选择最前面一个 HTMLLIElement
-    var oLiArray=document.querySelectorAll('li') //返回集合 NodeList
-    var oDiv=document.getElementById("div1") //默认选择最前面一个 HTMLDivElement
-    var ooDiv=document.getElementsByClassName('example') //返回集合 HTMLCollection
-    var oName=document.getElementsByName("example") //返回集合 NodeList
-    var oTag=document.getElementsByTagName('div') //返回集合 HTMLCollection
-    // 创建节点
-    //创建元素节点
-    var oBtn=document.createElement('BUTTON') //HTMLButtonElement
-    //创建文本节点
-    var oText=document.createTextNode("hahahhahh") //Text
-    //创建注释节点
-    var oComment=document.createComment("ahhahhahahhah") //Comment
-    //创建属性节点
-    var oAttr=document.createAttribute("class");
-    console.log(oAttr)
-    oAttr.value="myClass"
-    console.log(oAttr)
-    console.log(toString.call(oAttr)) //Attr
-    //创建文档片段节点
-    var oDocFrag=document.createDocumentFragment();
-    var oLi=document.createElement('LI');
-    oLi.textContent="我在文档片段里面";
-    oDocFrag.appendChild(oLi);
-    console.log(oDocFrag)
-    console.log(toString.call(oDocFrag)) //DocumentFragment
-  </script>
-</html>
-```
-### 语义化标签
-* 为什么会出现语义化标签?
-```
-当下html是靠div+css来铸造页面的整体框架和结构的，通篇大量的div可读性极低，因此诞生了这些特殊的标签，简单地说就是见名知义，
-使页面更清晰，方便维护和开发。
-```
-* 什么是语义化标签？
-```
-语义是指对一个词或者句子含义的正确解释。
-很多html标签也具有语义的意义，也就是说元素本身传达了关于标签所包含内容类型的一些信息。
-例如，当浏览器解析到<h1></h1>标签时，它将该标签解释为包含这一块内容的最重要的标题。
-h1标签的语义就是用它来标识特定网页或部分最重要的标题。
-```
-* 语义化标签的作用？
-```
-代码结构: 使页面没有css的情况下，也能够呈现出很好的内容结构
-有利于SEO: 爬虫依赖标签来确定关键字的权重，因此可以和搜索引擎建立良好的沟通，帮助爬虫抓取更多的有效信息
-提升用户体验： 例如title、alt可以用于解释名称或者解释图片信息，以及label标签的灵活运用。
-便于团队开发和维护: 语义化使得代码更具有可读性，让其他开发人员更加理解你的html结构，减少差异化。
-方便其他设备解析: 如屏幕阅读器、盲人阅读器、移动设备等，以有意义的方式来渲染网页。
-```
-* h1~h6标签 用于定义页面的标题，h1元素具有最高等级，h6元素具有最低的等级
-* header标签 定义页面的介绍展示区域，通常包括网站logo、主导航、全站链接以及搜索框
-* nav标签 定义页面的导航链接部分区域
-* main标签 定义页面的主要内容，一个页面只能使用一次
-* article标签 定义页面独立的内容，它可以有自己的header、footer、sections等
-* section标签 用于标记文档的各个部分，例如长表单文章的章节或主要部分
-* aside标签 定义与主要内容相关的内容块。通常显示为侧边栏
-* footer标签 定义文档的底部区域，通常包含文档的作者，著作权信息，链接的使用条款，联系信息等
-* blockquote标签
-```html
-<body>
-<span>这里测试块引用的开始</span>
-<blockquote cite="https://www.baidu.com">
-  块引用，blockquote为块级元素
-  四周都有margin,cite属性可用来规定引用的来源
-</blockquote>
-<span>这里测试块引用的结尾</span>
-</body>
-```
-* strong和em标签
-```html
-<strong>把文本定义为语气更强的强调的内容，以表示内容的重要性 样式加粗</strong>
-<em>标记内容着重点，通常呈现为斜体文字</em>
-```
-* small标签 为较不重要的内容定义小字体
-```html
-如果被包围的字体已经是字体模型所支持的最小字号，那么此标签将不起任何作用
-<p>这是正常字体</p>
-<small>这是小一点的字体</small>
-```
-* abbr标签 解释缩写词。使用title属性可提供全称
-```html
-由于使用了title属性，鼠标移到PRC时会出现全称
-<abbr title="People's Republic of China">PRC</abbr>
-```
-* q标签 标记一个短的引用
-```html
-<body>
-<q>样式就是加了一个引号</q>
-</body>
-```
-* li标签 可以单独使用 默认无序列表
-```html
-<body>
-<li>测试li标签A</li>
-<li>测试li标签B</li>
-<li>测试li标签C</li>
-</body>
-```
-* ul、ol标签只有搭配li标签才能发挥其真正作用
-* p、a标签
-### 笔试获取用户输入
-```node
-const readline=require('readline');
-const res=readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-let arr=[]
-res.on('line',input=>{
-  arr.push(input)
-  if(arr.length === 2){
-    var newArr=arr.map(item=>item.split(' ').filter(e=>e!=='').map(e=>+e))
-    console.log(newArr)
-    res.close()
-  }
-})
-res.on('close',()=>{
-  process.exit(0)
-})
-```
-***
-***
-***
-## css
 ### 如何导入样式表
 * 直接在标签里写样式
 * 内联css文件，直接在head里面写css
@@ -917,6 +921,7 @@ link引用和import引用区别是：link是html加载前就引用，而import�
 ***
 ***
 ***
+## 前端安全
 ### 跨站脚本攻击
 ```
 记住永远不要相信用户的输入！！！
