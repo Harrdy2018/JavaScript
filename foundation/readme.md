@@ -1209,7 +1209,7 @@ IE盒子模型
  box-sizing: border-box;
 IE盒子模型的width = content+padding+border
 IE盒子模型的height = content+padding+border
-例如增加padding宽度大小使得盒子宽度大于设置的宽度会将content的大小被压缩，最终content大小会变为0。box的总宽度会大于设置的width大小。
+例如增加padding宽度大小使得盒子宽度大于设置的宽度会将content的大小被压缩，最终content大小会变为0
 ```
 ***
 ***
