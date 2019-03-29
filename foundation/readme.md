@@ -1100,7 +1100,8 @@ overflow 除了 visible 以外的值 (hidden、auto、scroll)
 ```
 因为height: auto;的计算结果不是一定为0的。
 正常父元素包含浮动子元素，父元素的高度确实为0。
-但是父元素overflow:hidden;后，首先会计算height: auto;的真实高度，由于其触发了BFC，需要包含子元素，所以高度不是0，而是子元素高度。
+但是父元素overflow:hidden;后，首先会计算height: auto;的真实高度，由于其触发了BFC，需要包含子元素，所以高度不是0，
+而是子元素高度。
 这时overflow:hidden;才起到隐藏作用，不过父元素高度足够大，所以子元素没有被隐藏。
 总之，是先计算真实高度，再去隐藏。如果是先直接隐藏了，再去计算高度也就没有意义了。
 ```
@@ -1128,6 +1129,67 @@ overflow 除了 visible 以外的值 (hidden、auto、scroll)
 <div class="out">
   <div class="in"></div>
 </div>
+</body>
+<script>
+</script>
+</html>
+```
+* BFC 可以阻止元素被浮动元素覆盖
+```html
+<!--test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test html</title>
+  <style>
+    .A{
+      height: 100px;
+      width: 100px;
+      float: left;
+      background-color: lightblue;
+    }
+    .B{
+      width: 200px; 
+      height: 200px;
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="A">我是一个左浮动的元素,height: 100px;width: 100px;</div>
+  <div class="B">我是一个没有设置浮动, 也没有触发 BFC 元素, width: 200px; height:200px;</div>
+</body>
+<script>
+</script>
+</html>
+
+这时候其实第二个元素有部分被浮动元素所覆盖，(但是文本信息不会被浮动元素所覆盖) 如果想避免元素被覆盖，
+可触第二个元素的 BFC 特性，在第二个元素中加入 overflow: hidden，就会变成：
+<!--test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test html</title>
+  <style>
+    .A{
+      height: 100px;
+      width: 100px;
+      float: left;
+      background-color: lightblue;
+    }
+    .B{
+      width: 200px; 
+      height: 200px;
+      background: #eee;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="A">我是一个左浮动的元素,height: 100px;width: 100px;</div>
+  <div class="B">我是一个没有设置浮动, 也没有触发 BFC 元素, width: 200px; height:200px;</div>
 </body>
 <script>
 </script>
