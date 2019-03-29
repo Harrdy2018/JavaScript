@@ -812,6 +812,39 @@ p{
     }
 浏览器解析padding为160px;
 ```
+* em 单位是相对于他们最终获得(不是父元素)的字体大小
+```html
+<!--test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test html</title>
+  <style>
+    div{
+      font-size: 14px;
+    }
+    p{
+      font-size: 16px;
+      padding: 1.5em;
+      /*16x1.5=24*/
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p></p>
+  </div>
+</body>
+<script>
+</script>
+</html>
+```
+```
+font-size: 62.5%;   1rem = 10px;
+font-size: 100%;    1rem = 16px;
+// 对根元素这样设置可以方便我们接下来进行单位的换算
+```
 ### 居中
 #### p标签内的文字居中
 ```html
