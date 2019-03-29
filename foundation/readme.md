@@ -31,6 +31,7 @@
 * [meta标签](./codeFiles/meta标签.md)
 * [css文件引入的四种方式](#如何导入样式表)
 * [BFC](#块级格式化上下文)
+* [盒模型](#盒模型)
 ***
 ## 前端安全
 * [XSS攻击](#跨站脚本攻击)
@@ -1194,6 +1195,21 @@ overflow 除了 visible 以外的值 (hidden、auto、scroll)
 <script>
 </script>
 </html>
+```
+### 盒模型
+* 盒子模型组成为：margin、border、padding、content
+```
+标准盒子模型，默认的
+box-sizing: content-box;
+W3盒子模型的width = content
+W3盒子模型的height = content
+css设置的width和height就是content内容大小。padding、border的大小并不会影响content的大小。
+
+IE盒子模型
+ box-sizing: border-box;
+IE盒子模型的width = content+padding+border
+IE盒子模型的height = content+padding+border
+例如增加padding宽度大小使得盒子宽度大于设置的宽度会将content的大小被压缩，最终content大小会变为0。box的总宽度会大于设置的width大小。
 ```
 ***
 ***
