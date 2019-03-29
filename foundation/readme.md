@@ -1105,6 +1105,12 @@ overflow 除了 visible 以外的值 (hidden、auto、scroll)
 而是子元素高度。
 这时overflow:hidden;才起到隐藏作用，不过父元素高度足够大，所以子元素没有被隐藏。
 总之，是先计算真实高度，再去隐藏。如果是先直接隐藏了，再去计算高度也就没有意义了。
+
+这实际上是解决高度坍塌问题，IE6以上浏览器是overflow: hidden;开启BFC
+IE6浏览器是zoom:1;开启hasLayout,和BFC性质类似
+zoom表示放大的意思，后边跟着一个数值，写几就将元素放大几倍
+zoom:1表示不放大元素，但是通过该样式可以开启hasLayout
+zoom这个样式，只在IE中支持，其他浏览器都不支持。
 ```
 ```html
 <!--test.html-->
