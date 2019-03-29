@@ -1037,6 +1037,64 @@ overflow 除了 visible 以外的值 (hidden、auto、scroll)
 * BFC 特性及应用
   * 同一个 BFC 下外边距会发生折叠
 ```html
+<!--test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test html</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<div></div>
+</body>
+<script>
+</script>
+</html>
+```
+```
+从效果上看，因为两个 div 元素都处于同一个 BFC 容器下 (这里指 body 元素) 
+所以第一个 div 的下边距和第二个 div 的上边距发生了重叠，所以两个盒子之间距离只有 100px，而不是 200px。
+如果想要避免外边距的重叠，可以将其放在不同的 BFC 容器中。
+```
+```html
+<!--test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test html</title>
+  <style>
+    .test{
+      overflow: hidden;
+    }
+    p{
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="test">
+  <p></p>
+</div>
+<div class="test">
+  <p></p>
+</div>
+</body>
+<script>
+</script>
+</html>
 ```
 ***
 ***
