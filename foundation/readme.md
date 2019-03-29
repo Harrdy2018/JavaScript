@@ -30,6 +30,7 @@
 * [解释固定定位](#解释固定定位)
 * [meta标签](./codeFiles/meta标签.md)
 * [css文件引入的四种方式](#如何导入样式表)
+* [BFC](#块级格式化上下文)
 ***
 ## 前端安全
 * [XSS攻击](#跨站脚本攻击)
@@ -1015,6 +1016,23 @@ div{
 ```
 link引用和import引用区别是：link是html加载前就引用，而import是html加载后才引用。
 举例，采用impor引用，会先显示无样式的页面，然后再把样式放进去
+```
+### 块级格式化上下文
+* BFC规则
+```
+1,BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。
+  通俗一点来讲，可以把 BFC 理解为一个封闭的大箱子，箱子内部的元素无论如何翻江倒海，都不会影响到外部
+2,计算BFC的高度时，浮动元素也参与计算。
+```
+* 触发BFC
+```
+只要元素满足下面任一条件即可触发 BFC 特性：
+
+body 根元素
+浮动元素：float 除 none 以外的值
+绝对定位元素：position (absolute、fixed)
+display 为 inline-block、table-cells、flex
+overflow 除了 visible 以外的值 (hidden、auto、scroll)
 ```
 ***
 ***
