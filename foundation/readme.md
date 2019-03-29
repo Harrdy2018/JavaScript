@@ -1034,8 +1034,8 @@ body 根元素
 display 为 inline-block、table-cells、flex
 overflow 除了 visible 以外的值 (hidden、auto、scroll)
 ```
-* BFC 特性及应用
-  * 同一个 BFC 下外边距会发生折叠
+#### BFC 特性及应用
+* 同一个 BFC 下外边距会发生折叠
 ```html
 <!--test.html-->
 <!DOCTYPE html>
@@ -1096,7 +1096,7 @@ overflow 除了 visible 以外的值 (hidden、auto、scroll)
 </script>
 </html>
 ```
- * BFC 可以包含浮动的元素（清除浮动）
+* BFC 可以包含浮动的元素（清除浮动）
 ```
 因为height: auto;的计算结果不是一定为0的。
 正常父元素包含浮动子元素，父元素的高度确实为0。
