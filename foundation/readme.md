@@ -1035,7 +1035,7 @@ display 为 inline-block、table-cells、flex
 overflow 除了 visible 以外的值 (hidden、auto、scroll)
 ```
 * BFC 特性及应用
-  ** 同一个 BFC 下外边距会发生折叠
+  * 同一个 BFC 下外边距会发生折叠
 ```html
 ```
 ***
