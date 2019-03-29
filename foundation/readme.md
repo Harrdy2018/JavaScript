@@ -1096,6 +1096,43 @@ overflow 除了 visible 以外的值 (hidden、auto、scroll)
 </script>
 </html>
 ```
+ * BFC 可以包含浮动的元素（清除浮动）
+```
+因为height: auto;的计算结果不是一定为0的。
+正常父元素包含浮动子元素，父元素的高度确实为0。
+但是父元素overflow:hidden;后，首先会计算height: auto;的真实高度，由于其触发了BFC，需要包含子元素，所以高度不是0，而是子元素高度。
+这时overflow:hidden;才起到隐藏作用，不过父元素高度足够大，所以子元素没有被隐藏。
+总之，是先计算真实高度，再去隐藏。如果是先直接隐藏了，再去计算高度也就没有意义了。
+```
+```html
+<!--test.html-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>test html</title>
+  <style>
+    .out{
+      border: 1px solid #000;
+      overflow: hidden;
+    }
+    .in{
+      width: 100px;
+      height: 100px;
+      background-color: #eee;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+<div class="out">
+  <div class="in"></div>
+</div>
+</body>
+<script>
+</script>
+</html>
+```
 ***
 ***
 ***
