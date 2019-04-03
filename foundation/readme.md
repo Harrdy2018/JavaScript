@@ -18,6 +18,7 @@
 * [Node如何获取用户的输入？？？](#笔试获取用户输入)
 * [async/await关键字](#异步等待关键字)
 * [事件代理](#事件代理)
+* [用原生js实现addClass,removeClass方法](#用原生代码实现)
 ***
 ## HTML
 * [谈谈你对HTML5语义化标签的理解](#语义化标签)
@@ -710,6 +711,27 @@ f().catch(e=>console.log(e))
   })
 </script>
 </html>
+```
+### 用原生代码实现
+```node
+  function addClass(e,newClassName){
+    let classArray=Array.from(e.classList)
+    let index=classArray.indexOf(newClassName,0)
+    // 如果是新的样式类名
+    if(index ===-1){
+      classArray.push(newClassName)
+      e.className=classArray.join(' ')
+    }
+  }
+  function removeClass(e,deleteClassName){
+    let classArray=Array.from(e.classList)
+    let index=classArray.indexOf(deleteClassName,0)
+    // 如果样式类名已经存在
+    if(index !== -1){
+      classArray.splice(index,1)
+      e.className=classArray.join(' ')
+    }
+  }
 ```
 ***
 ***
