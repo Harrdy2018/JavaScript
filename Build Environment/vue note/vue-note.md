@@ -378,6 +378,9 @@ new Vue({
 ```
 #### MessageBox 弹框
 * 最基本的弹框
+```
+如果你想修改弹框里面的样式style,请使用深度作用选择器/deep/
+```
 ```html
 <!DOCTYPE html>
 <html>
