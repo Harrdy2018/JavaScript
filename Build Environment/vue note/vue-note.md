@@ -67,6 +67,31 @@ new Vue({
   template: `<Test/>`
 })
 ```
+* 局部组件
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>my project</title>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="./test.js"></script>
+</html>
+```
+```javascript
+let Test={
+  template: `<p>局部组件</p>`
+}
+new Vue({
+  el: '#app',
+  components: {'LK': Test},
+  template: `<LK/>`
+})
+```
 ### 组件之间的传值
 #### 父传子
 ```html
