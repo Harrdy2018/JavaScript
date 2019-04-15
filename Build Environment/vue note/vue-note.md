@@ -43,7 +43,7 @@
 ```
 ## 项目经验
 ### 组件之间的传值
-* 父传子
+#### 父传子
 ```html
 <!DOCTYPE html>
 <html>
@@ -102,7 +102,7 @@ new Vue({
   template: `<Child v-bind:message="parameter"></Child>`
 })
 ```
-* 子传父
+#### 子传父
 ```html
 <!DOCTYPE html>
 <html>
@@ -170,9 +170,9 @@ new Vue({
   }
 })
 ```
-* 兄弟组件通信
-* *子传父，父传子
-* *借助于一个公共的Vue的实例对象，不同的组件可以通过该对象完成事件的绑定和触发
+#### 兄弟组件通信
+* 子传父，父传子
+* 借助于一个公共的Vue的实例对象，不同的组件可以通过该对象完成事件的绑定和触发
 ```html
 <!DOCTYPE html>
 <html>
@@ -230,3 +230,4 @@ new Vue({
   </div>`,
 })
 ```
+* vuex管理
