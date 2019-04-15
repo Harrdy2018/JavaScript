@@ -41,3 +41,33 @@
 </script>
 </html>
 ```
+## 项目经验
+### 组件之间的传值
+* 父传子
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>my project</title>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="./test.js"></script>
+</html>
+```
+```javascript
+Vue.component('Child',{
+  props: ["message"],
+  template: `<div>
+    <h2>子组件部分</h2>
+    <p>我收到了来自父组件的参数{{message}}</p>
+  </div>`
+})
+new Vue({
+  el:"#app",
+  template: `<Child message="parameter"></Child>`
+})
+```
