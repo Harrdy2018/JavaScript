@@ -143,3 +143,30 @@ new Vue({
   }
 })
 ```
+```javascript
+//test.js第二种写法
+Vue.component('Child',{
+  data: function(){
+    return {message: 'I am from Child!!!'}
+  },
+  template: 
+  `<div>
+    <h2>子组件部分</h2>
+    <button v-on:click="sendMsgToParent">传值给父亲</button>
+  </div>`,
+  methods: {
+    sendMsgToParent: function(){
+      this.$emit('listenToChild',this.message)
+    }
+  }
+})
+new Vue({
+  el:"#app",
+  template: `<Child v-on:listenToChild="showMsg"></Child>`,
+  methods: {
+    showMsg: function(data){
+      console.log(data) // I am from Child!!!
+    }
+  }
+})
+```
