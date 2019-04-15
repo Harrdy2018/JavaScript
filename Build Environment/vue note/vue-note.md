@@ -376,3 +376,78 @@ new Vue({
   template: `<Child/>`
 })
 ```
+#### MessageBox 弹框
+* 最基本的弹框
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>my project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.7.2/lib/theme-chalk/index.css">
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/element-ui@2.7.2/lib/index.js"></script>
+<script src="./test.js"></script>
+</html>
+```
+```javascript
+let child={
+  template:
+  `<div>
+    <el-button @click="open">删除</el-button>
+  </div>`,
+  methods: {
+    open(){
+      const h=this.$createElement;
+      let con=h('p',null,[
+        h('span',null,'此操作将永久删除此需求，是否'),
+        h('i',{style: 'color: red'},'继续?')
+      ])
+      this.$msgbox({
+        title: '删除需求',
+        message: con,
+        showCancelButton: true,
+        showConfirmButton: true,
+        showClose: true,
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        //是否将取消（点击取消按钮）与关闭（点击关闭按钮或遮罩层、按下 ESC 键）进行区分
+        distinguishCancelAndClose: true,
+        beforeClose: (action,instance,done)=>{
+          //点击确定 action=>confirm
+          //点击取消 action=>cancel
+          //点击xx action=>close
+          //ESC action=>cancel
+          //点击遮罩层 action=>close
+          console.log(action)
+          //instance相当于弹出框的实例
+          console.log(instance)
+          console.log(instance.cancelButtonText)//取消
+          console.log(instance.confirmButtonText)//确定
+          if(action==='confirm'){
+            /*执行点击确定之后的代码*/
+            done();
+          }else{
+            done();//相当于退出
+          }
+        }
+      }).then(action=>{
+        //确定动作成功的回调
+        console.log(action);
+      },action=>{
+        //取消动作成功的回调
+        console.log(action)
+      }).catch(e=>{})
+    }
+  }
+}
+new Vue({
+  el: "#app",
+  components: {'Child': child},
+  template: `<Child/>`
+})
+```
