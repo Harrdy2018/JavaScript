@@ -170,3 +170,63 @@ new Vue({
   }
 })
 ```
+* 兄弟组件通信
+** 子传父，父传子
+** 借助于一个公共的Vue的实例对象，不同的组件可以通过该对象完成事件的绑定和触发
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>my project</title>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="./test.js"></script>
+</html>
+```
+```javascript
+let bus=new Vue();
+Vue.component('ChildA',{
+  data: function(){
+    return {a: -1}
+  },
+  template: 
+  `<div>
+    <h2>子组件A部分</h2>
+    <button v-on:click="sendMsg">传值给兄弟组件</button>
+  </div>`,
+  methods: {
+    sendMsg: function(){
+      bus.$emit('send',this.a++)
+    }
+  }
+});
+Vue.component('ChildB',{
+  data(){
+    return {msg: undefined}
+  },
+  template: 
+  `<div>
+    <h2>子组件B部分</h2>
+    <p>{{this.msg}}</p>
+  </div>`,
+  created(){
+    // 关键点，这里的this和下一行的this不一样
+    let self=this;
+    bus.$on('send',function(val) {
+      self.msg=val;
+    })
+  }
+})
+new Vue({
+  el:"#app",
+  template:
+  `<div>
+    <ChildA></ChildA>
+    <ChildB></ChildB>
+  </div>`,
+})
+```
