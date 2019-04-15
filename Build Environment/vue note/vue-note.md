@@ -102,3 +102,44 @@ new Vue({
   template: `<Child v-bind:message="parameter"></Child>`
 })
 ```
+* 子传父
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>my project</title>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="./test.js"></script>
+</html>
+```
+```javascript
+Vue.component('Child',{
+  data: function(){
+    return {message: 'I am from Child!!!'}
+  },
+  template: 
+  `<div>
+    <h2>子组件部分</h2>
+    <button v-on:click="sendMsgToParent">传值给父亲</button>
+  </div>`,
+  methods: {
+    sendMsgToParent: function(){
+      this.$emit('listenToChild',this.message)
+    }
+  }
+})
+new Vue({
+  el:"#app",
+  template: `<Child v-on:listenToChild="showMsg($event)"></Child>`,
+  methods: {
+    showMsg: function(e){
+      console.log(e) // I am from Child!!!
+    }
+  }
+})
+```
