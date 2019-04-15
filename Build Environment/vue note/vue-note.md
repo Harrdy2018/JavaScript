@@ -281,3 +281,98 @@ new Vue({
   </div>`,
 })
 ```
+### element-ui
+#### el-table组件的操作类按钮
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>my project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.7.2/lib/theme-chalk/index.css">
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/element-ui@2.7.2/lib/index.js"></script>
+<script src="./test.js"></script>
+</html>
+```
+```javascript
+let child={
+  template: 
+  `<div>
+    <el-table :data="tableData" style="width: 60%">
+      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+      <el-table-column prop="address" label="地址" width="280"></el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button size="mini" @click="handleEdit(scope)">编辑</el-button>
+          <el-button size="mini" type="danger" @click="handleDelete(scope)">删除</el-button>
+          <el-button size="mini" @click="handleAdd(scope)">新增</el-button>
+          <el-button size="mini" @click="handleShiftUp(scope)">上移</el-button>
+          <el-button size="mini" @click="handleShiftDown(scope)">下移</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>`,
+  data(){
+    return {
+      tableData: [{
+        name: 'zz',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        name: 'ycg',
+        address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        name: 'sff',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        name: 'lk',
+        address: '上海市普陀区金沙江路 1516 弄'
+      }]
+    }
+  },
+  methods: {
+    /*
+    scope.$index 数据行的索引 0,1,2,3,4
+    scope.row.addresss
+    scope.row.name
+    */
+    //edit
+    handleEdit(scope){
+      console.log(scope)
+    },
+    //delete
+    handleDelete(scope){
+      this.tableData.splice(scope.$index,1);
+    },
+    //add
+    handleAdd(scope){
+      let d={
+        name: 'qqq',
+        address: '南京市鼓楼区南京邮电大学三牌楼校区'
+      }
+      this.tableData.splice(scope.$index+1,0,d);
+    },
+    //handleShiftUp
+    handleShiftUp(scope){
+      let d=this.tableData[scope.$index];
+      this.tableData.splice(scope.$index,1);
+      this.tableData.splice(scope.$index-1,0,d);
+    },
+    //handleShiftDown
+    handleShiftDown(scope){
+      let d=this.tableData[scope.$index];
+      this.tableData.splice(scope.$index,1);
+      this.tableData.splice(scope.$index+1,0,d);
+    }
+  }
+}
+new Vue({
+  el: '#app',
+  components: {'Child':child},
+  template: `<Child/>`
+})
+```
