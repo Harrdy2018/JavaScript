@@ -42,7 +42,7 @@
 </html>
 ```
 ## 插槽
-### 单个插槽/默认插槽
+### 单个插槽/默认插槽/匿名插糟
 ```
 我们一般在父组件中引用子组件的时候，是这样做的<Child></Child>
 现在在父组件中引入的时候有内容了，是这样的<Child>data</Child>
@@ -82,6 +82,54 @@ let parent={
       <p>菜单三</p>
       <p>菜单四</p>
       <p>菜单五</p>
+    </Child>
+  </div>`,
+  components: {'Child': child}
+}
+new Vue({
+  el: "#app",
+  components: {'Parent': parent},
+  template: `<Parent/>`
+})
+```
+### 具名插槽
+* 父组件通过html模板上的slot属性关联具名插槽。没有slot属性的html模板默认关联匿名插槽。
+```javascript
+let child={
+  template:
+  `<div>
+    <p>这里是子组件</p>
+    <slot name="up"></slot>
+    <slot name="down"></slot>
+    <slot></slot>
+  </div>`
+}
+let parent={
+  template:
+  `<div>
+    <p>这里是父组件</p>
+    <Child>
+      <div slot="up">
+        <p>菜单一</p>
+        <p>菜单二</p>
+        <p>菜单三</p>
+        <p>菜单四</p>
+        <p>菜单五</p>
+      </div>
+      <div slot="down">
+        <p>菜单1</p>
+        <p>菜单2</p>
+        <p>菜单3</p>
+        <p>菜单4</p>
+        <p>菜单5</p>
+      </div>  
+      <div>
+        <p>菜单一1</p>
+        <p>菜单二2</p>
+        <p>菜单三3</p>
+        <p>菜单四3</p>
+        <p>菜单五5</p>
+      </div>  
     </Child>
   </div>`,
   components: {'Child': child}
