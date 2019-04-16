@@ -41,6 +41,57 @@
 </script>
 </html>
 ```
+## 插槽
+### 单个插槽/默认插槽
+```
+我们一般在父组件中引用子组件的时候，是这样做的<Child></Child>
+现在在父组件中引入的时候有内容了，是这样的<Child>data</Child>
+那么在子组件中定义的slot会将data显示出来
+```
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>my project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.7.2/lib/theme-chalk/index.css">
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/element-ui@2.7.2/lib/index.js"></script>
+<script src="./test.js"></script>
+</html>
+```
+```javascript
+let child={
+  template:
+  `<div>
+    <p>这里是子组件</p>
+    <slot></slot>
+  </div>`
+}
+let parent={
+  template:
+  `<div>
+    <p>这里是父组件</p>
+    <Child>
+      <p>菜单一</p>
+      <p>菜单二</p>
+      <p>菜单三</p>
+      <p>菜单四</p>
+      <p>菜单五</p>
+    </Child>
+  </div>`,
+  components: {'Child': child}
+}
+new Vue({
+  el: "#app",
+  components: {'Parent': parent},
+  template: `<Parent/>`
+})
+```
 ## 项目经验
 ### 组件
 * 全局组件
