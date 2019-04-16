@@ -140,6 +140,55 @@ new Vue({
   template: `<Parent/>`
 })
 ```
+### 作用域插槽/带数据的插槽
+```
+在Child组件中的时候：
+<slot name="up" :data="data"></slot>
+ export default {
+    data: function(){
+      return {
+        data: ['zhangsan','lisi','wanwu','zhaoliu','tianqi','xiaoba']
+      }
+    },
+}
+```
+```javascript
+let child={
+  template:
+  `<div>
+    <p>这里是子组件</p>
+    <slot :data="data"></slot>
+  </div>`,
+  data(){
+    return {
+      data: [1,2,3,4,5,6,7]
+    }
+  }
+}
+let parent={
+  template:
+  `<div>
+    <p>这里是父组件</p>
+    <Child>
+      <template slot-scope="user">
+        <ul>
+          <li v-for="item in user.data">{{item}}</li>
+        </ul>
+      </template>
+    </Child>
+    <p>不使用其提供的数据, 作用域插槽退变成匿名插槽</p>
+    <Child>
+      我就是我
+    </Child>
+  </div>`,
+  components: {'Child': child}
+}
+new Vue({
+  el: "#app",
+  components: {'Parent': parent},
+  template: `<Parent/>`
+})
+```
 ## 项目经验
 ### 组件
 * 全局组件
