@@ -1279,6 +1279,7 @@ IE盒子模型的height = content+padding+border
 ## 前端安全
 ### 跨站脚本攻击
 ```
+XSS又称为CSS(CrossSiteScript)即跨站脚本攻击，是为了不与CSS(层叠样式表)混淆
 记住永远不要相信用户的输入！！！
 
 在表单提交的过程中，如果黑客嵌入脚本攻击代码：
