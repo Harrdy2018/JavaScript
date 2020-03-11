@@ -26,7 +26,7 @@
 * [rem和em单位](#像素单位)
 * [css选择器](./codeFiles/css选择器.md)
 * [css选择器优先级](./codeFiles/css选择器优先级.md)
-* [纯css创建一个三角形](./codeFiles/创建三角形.md
+* [纯css创建一个三角形](./codeFiles/创建三角形.md)
 * [解释固定定位](#解释固定定位)
 * [meta标签](./codeFiles/meta标签.md)
 * [css文件引入的四种方式](#如何导入样式表)
